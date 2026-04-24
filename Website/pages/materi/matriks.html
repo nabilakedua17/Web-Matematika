@@ -5,43 +5,214 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Materi Matriks - Kelas 11</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f5f7fa; line-height: 1.6; color: #333; }
-        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f0f2f5; line-height: 1.6; color: #333; }
+        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
         .btn-back:hover { background: rgba(255,255,255,0.2); }
-        .content-container { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
-        h1 { color: #1e3c72; border-bottom: 3px solid #2ecc71; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #2c3e50; margin-top: 30px; border-left: 5px solid #ff8c00; padding-left: 15px; }
-        .info-box { background: #e8f5e9; border-left: 5px solid #2ecc71; padding: 15px; margin: 20px 0; border-radius: 0 10px 10px 0; }
-        footer { text-align: center; padding: 30px; color: #7f8c8d; font-size: 14px; }
-        p { margin-bottom: 15px; }
+        
+        .content-container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1e3c72; border-bottom: 3px solid #2ecc71; padding-bottom: 10px; margin-top: 0; text-align: center; }
+        h2 { color: #ffffff; background: #1e3c72; padding: 12px 20px; border-radius: 8px; margin-top: 50px; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { color: #2c3e50; border-left: 5px solid #ff8c00; padding-left: 15px; margin-top: 30px; }
+
+        /* Penulisan Matematika Profesional */
+        .math-display { 
+            background: #2c3e50; 
+            color: #fff; 
+            padding: 25px; 
+            text-align: center; 
+            border-radius: 15px; 
+            margin: 20px 0; 
+            font-family: "Times New Roman", Times, serif; 
+            font-size: 1.6em;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        /* Renderer Matriks */
+        .matrix-container { display: inline-flex; align-items: center; vertical-align: middle; padding: 0 5px; }
+        .bracket { font-size: 2.2em; font-weight: 100; transform: scaleY(1.3); }
+        .matrix-content { display: grid; text-align: center; gap: 5px 15px; padding: 0 10px; font-style: normal; }
+
+        .fraction { display: inline-block; vertical-align: middle; margin: 0 0.3em; text-align: center; font-style: normal; font-size: 0.8em; }
+        .fraction > span { display: block; padding: 0.1em; }
+        .fraction span.fdn { border-top: 2px solid white; }
+        .fraction span.fdn-dark { border-top: 2px solid #333; }
+
+        /* Box Contoh Soal */
+        .example-box { background: #fff; border: 1px solid #ff8c00; border-left: 8px solid #ff8c00; padding: 25px; margin: 30px 0; border-radius: 10px; }
+        .example-title { color: #d35400; font-weight: bold; font-size: 1.1em; margin-bottom: 10px; display: block; }
+        
+        .solution-step { 
+            display: block; 
+            margin-top: 15px; 
+            padding: 15px; 
+            background: #f9f9f9; 
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            font-size: 1.2em;
+            color: #27ae60;
+        }
+        .step-row { display: flex; align-items: center; justify-content: center; margin-bottom: 5px; flex-wrap: wrap; }
+
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; border-radius: 8px; overflow: hidden; }
+        th { background-color: #1e3c72; color: white; padding: 15px; }
+        td { padding: 15px; border: 1px solid #ddd; text-align: center; }
+
+        .exercise-section { background: #f8f9fa; padding: 30px; border-radius: 15px; margin-top: 40px; border: 1px dashed #1e3c72; }
+        
+        footer { text-align: center; padding: 40px; color: #7f8c8d; font-size: 14px; background: #fff; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
     <div class="navbar">
         <a href="../kelas11.html" class="btn-back">← Kembali</a>
-        <span>Materi Matematika Fase F</span>
+        <span>Materi Matematika Fase F - MAN 1 Makassar</span>
     </div>
 
     <div class="content-container">
-        <h1>Matriks</h1>
-        
-        <p>Matriks adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom sehingga membentuk suatu bangun persegi atau persegi panjang.</p>
+        <h1>BAB 2: MATRIKS</h1>
 
-        <div class="info-box">
-            <strong>Catatan Penting:</strong> Ordo matriks ditentukan oleh banyaknya baris dikali banyaknya kolom (m x n). Contoh: Matriks 2x3 memiliki 2 baris dan 3 kolom.
+        <h2>A. KONSEP DAN JENIS MATRIKS</h2>
+        
+        <h3>1. Pengertian Matriks</h3>
+        <p>Matriks adalah susunan bilangan yang diatur dalam baris dan kolom di dalam tanda kurung. Matriks digunakan dalam berbagai bidang seperti Sistem Persamaan Linear, Kriptografi, hingga Kecerdasan Buatan (AI).</p>
+
+        <div class="math-display">
+            A<sub>m &times; n</sub> = 
+            <div class="matrix-container">
+                <span class="bracket">[</span>
+                <div class="matrix-content" style="grid-template-columns: repeat(2, auto);">
+                    <span>a<sub>11</sub></span> <span>a<sub>12</sub></span>
+                    <span>a<sub>21</sub></span> <span>a<sub>22</sub></span>
+                </div>
+                <span class="bracket">]</span>
+            </div>
         </div>
 
-        <h2>A. Operasi Matriks</h2>
-        <p>Penjumlahan dan pengurangan matriks hanya dapat dilakukan jika kedua matriks memiliki ordo yang sama. Sedangkan perkalian matriks memerlukan jumlah kolom matriks pertama sama dengan jumlah baris matriks kedua.</p>
+        <h3>2. Istilah Penting</h3>
+        <ul>
+            <li><b>Baris:</b> Susunan elemen secara mendatar.</li>
+            <li><b>Kolom:</b> Susunan elemen secara tegak.</li>
+            <li><b>Ordo:</b> Ukuran matriks (Baris &times; Kolom).</li>
+        </ul>
 
-        <h2>B. Determinan & Invers</h2>
-        <p>Determinan merupakan nilai yang dapat dihitung dari unsur-unsur suatu matriks persegi. Invers matriks adalah kebalikan dari suatu matriks yang jika dikalikan dengan matriks asalnya akan menghasilkan matriks identitas.</p>
+        <h3>3. Jenis-Jenis Matriks</h3>
+        <table>
+            <tr><th>Jenis Matriks</th><th>Keterangan</th></tr>
+            <tr><td>Matriks Identitas (I)</td><td>Diagonal utama bernilai 1, lainnya 0.</td></tr>
+            <tr><td>Matriks Nol (O)</td><td>Semua elemen bernilai 0.</td></tr>
+            <tr><td>Matriks Persegi</td><td>Jumlah baris sama dengan jumlah kolom.</td></tr>
+            <tr><td>Matriks Skalar</td><td>Matriks diagonal dengan angka yang sama.</td></tr>
+        </table>
+
+        <h2>B. TRANSPOS DAN KESAMAAN MATRIKS</h2>
+        
+        <h3>1. Transpos Matriks (A<sup>T</sup>)</h3>
+        <p>Transpos diperoleh dengan menukar baris menjadi kolom. Jika ordo awal <i>m &times; n</i>, maka ordo transposnya adalah <i>n &times; m</i>.</p>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Transpos:</span>
+            Jika A = 
+            <div class="matrix-container">
+                <span class="bracket">[</span>
+                <div class="matrix-content" style="grid-template-columns: auto auto;">
+                    <span>1</span> <span>2</span>
+                    <span>3</span> <span>4</span>
+                    <span>5</span> <span>6</span>
+                </div>
+                <span class="bracket">]</span>
+            </div>, maka tentukan A<sup>T</sup>!
+            <div class="solution-step">
+                A<sup>T</sup> = 
+                <div class="matrix-container">
+                    <span class="bracket">[</span>
+                    <div class="matrix-content" style="grid-template-columns: auto auto auto;">
+                        <span>1</span> <span>3</span> <span>5</span>
+                        <span>2</span> <span>4</span> <span>6</span>
+                    </div>
+                    <span class="bracket">]</span>
+                </div>
+            </div>
+        </div>
+
+        <h3>2. Kesamaan Dua Matriks</h3>
+        <p>Dua matriks dikatakan sama jika memiliki ordo yang sama dan elemen-elemen yang seletak nilainya sama.</p>
+
+        <h2>C. OPERASI MATRIKS</h2>
+
+        <h3>1. Penjumlahan & Pengurangan</h3>
+        <p>Dilakukan dengan menjumlahkan atau mengurangkan elemen yang seletak. Syarat: <b>Ordo harus sama</b>.</p>
+
+        <h3>2. Perkalian Dua Matriks</h3>
+        <p>Baris matriks pertama dikalikan dengan kolom matriks kedua. Syarat: Kolom matriks pertama = Baris matriks kedua.</p>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Perkalian Matriks:</span>
+            Hitung perkalian matriks [1 2] dengan [3; 4]!
+            <div class="solution-step">
+                [1 &times; 3] + [2 &times; 4] = 3 + 8 = <b>11</b>
+            </div>
+        </div>
+
+        <h2>D. DETERMINAN MATRIKS</h2>
+        
+        <h3>1. Determinan Ordo 2 &times; 2</h3>
+        <div class="math-display">
+            det(A) = |A| = ad &minus; bc
+        </div>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Determinan:</span>
+            Cari determinan dari matriks 
+            <div class="matrix-container">
+                <span class="bracket">[</span>
+                <div class="matrix-content" style="grid-template-columns: auto auto;">
+                    <span>5</span> <span>2</span>
+                    <span>4</span> <span>3</span>
+                </div>
+                <span class="bracket">]</span>
+            </div>
+            <div class="solution-step">
+                det = (5 &times; 3) &minus; (2 &times; 4) = 15 &minus; 8 = <b>7</b>
+            </div>
+        </div>
+
+        <h2>E. INVERS MATRIKS (2 &times; 2)</h2>
+        <div class="math-display">
+            A<sup>-1</sup> = 
+            <div class="fraction"><span>1</span><span class="fdn">det(A)</span></div>
+            &times; 
+            <div class="matrix-container">
+                <span class="bracket">[</span>
+                <div class="matrix-content" style="grid-template-columns: auto auto;">
+                    <span>d</span> <span>&minus;b</span>
+                    <span>&minus;c</span> <span>a</span>
+                </div>
+                <span class="bracket">]</span>
+            </div>
+        </div>
+
+        <div class="exercise-section">
+            <h3>LATIHAN SOAL MANDIRI</h3>
+            <p><b>Level Dasar:</b></p>
+            <ul>
+                <li>Tentukan ordo matriks B = [1 0 5; 2 1 6]!</li>
+                <li>Jika A = [x 4; 3 6] dan B = [10 4; 3 6], berapakah nilai x agar A = B?</li>
+            </ul>
+            <p><b>Level Analisis:</b></p>
+            <ul>
+                <li>Hitung determinan matriks [2 4; 1 3]!</li>
+                <li>Tentukan nilai x agar matriks [x 2; 8 x] memiliki determinan nol (Matriks Singular)!</li>
+                <li>Tentukan hasil transpos dari matriks kolom [7; 8; 9]!</li>
+            </ul>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Web Matematika - MAN 1 Makassar</p>
+        <p>Kampus Mengajar - Media Pembelajaran Digital</p>
     </footer>
 
 </body>

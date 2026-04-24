@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Bunga Majemuk dan Anuitas - Kelas 11</title>
+    <style>
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f0f2f5; line-height: 1.6; color: #333; }
+        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
+        .btn-back:hover { background: rgba(255,255,255,0.2); }
+        
+        .content-container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1e3c72; border-bottom: 3px solid #2ecc71; padding-bottom: 10px; margin-top: 0; text-align: center; }
+        h2 { color: #ffffff; background: #1e3c72; padding: 12px 20px; border-radius: 8px; margin-top: 50px; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { color: #2c3e50; border-left: 5px solid #ff8c00; padding-left: 15px; margin-top: 30px; }
+
+        /* Penulisan Matematika Profesional */
+        .math-font { font-family: "Times New Roman", Times, serif; font-style: italic; }
+        
+        .math-display { 
+            background: #2c3e50; 
+            color: #fff; 
+            padding: 25px; 
+            text-align: center; 
+            border-radius: 15px; 
+            margin: 20px 0; 
+            font-family: "Times New Roman", Times, serif; 
+            font-size: 1.6em;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        .fraction { display: inline-block; vertical-align: middle; margin: 0 0.3em; text-align: center; font-style: normal; }
+        .fraction > span { display: block; padding: 0.1em; }
+        .fraction span.fdn { border-top: 2px solid white; }
+        .fraction span.fdn-dark { border-top: 2px solid #333; }
+
+        /* Box Contoh Soal */
+        .example-box { background: #fff; border: 1px solid #ff8c00; border-left: 8px solid #ff8c00; padding: 25px; margin: 30px 0; border-radius: 10px; }
+        .example-title { color: #d35400; font-weight: bold; font-size: 1.1em; margin-bottom: 10px; display: block; }
+        
+        .solution-step { 
+            display: block; 
+            margin-top: 15px; 
+            padding: 15px; 
+            background: #f9f9f9; 
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            font-size: 1.2em;
+            color: #27ae60;
+        }
+
+        .step-row { display: flex; align-items: center; justify-content: center; margin-bottom: 5px; }
+
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; border-radius: 8px; overflow: hidden; }
+        th { background-color: #1e3c72; color: white; padding: 15px; }
+        td { padding: 15px; border: 1px solid #ddd; text-align: center; }
+
+        .exercise-section { background: #f8f9fa; padding: 30px; border-radius: 15px; margin-top: 40px; border: 1px dashed #1e3c72; }
+        
+        footer { text-align: center; padding: 40px; color: #7f8c8d; font-size: 14px; background: #fff; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="../kelas11.html" class="btn-back">← Kembali</a>
+        <span>Materi Matematika Fase F - MAN 1 Makassar</span>
+    </div>
+
+    <div class="content-container">
+        <h1>BAB 1: BUNGA MAJEMUK DAN ANUITAS</h1>
+
+        <h2>A. BUNGA MAJEMUK</h2>
+        
+        <h3>1. Pendahuluan & Pengertian</h3>
+        <p>Bunga majemuk dihitung berdasarkan modal awal dan bunga yang telah diperoleh sebelumnya. Sering disebut sebagai sistem <b>"bunga berbunga"</b>.</p>
+
+        <h3>2. Perbedaan Dasar</h3>
+        <table>
+            <tr><th>Jenis Bunga</th><th>Dasar Perhitungan</th></tr>
+            <tr><td>Bunga Tunggal</td><td>Modal awal tetap</td></tr>
+            <tr><td>Bunga Majemuk</td><td>Modal + Bunga sebelumnya (Saldo terbaru)</td></tr>
+        </table>
+
+        <h3>3. Rumus Utama Jumlah Akhir</h3>
+        <div class="math-display">
+            A = M (1 + i)<sup>n</sup>
+        </div>
+        
+        <div class="example-box">
+            <span class="example-title">Contoh Soal 1: Menentukan Jumlah Akhir</span>
+            Tabungan Rp5.000.000, bunga 8% per tahun selama 2 tahun. Berapa jumlah akhirnya?
+            <div class="solution-step">
+                <div class="step-row">A = 5.000.000 (1 + 0,08)<sup>2</sup></div>
+                <div class="step-row">A = 5.000.000 (1,1664)</div>
+                <div class="step-row"><b>A = Rp5.832.000</b></div>
+            </div>
+        </div>
+
+        <h3>4. Menentukan Modal Awal</h3>
+        <p>Jika jumlah akhir diketahui, kita menggunakan rumus pembagian:</p>
+        <div class="math-display">
+            M = <div class="fraction"><span>A</span><span class="fdn">(1 + i)<sup>n</sup></span></div>
+        </div>
+        <div class="example-box">
+            <span class="example-title">Contoh Soal 2: Mencari Modal Awal</span>
+            Jumlah akhir Rp4.840.000, bunga 10%, selama 2 tahun.
+            <div class="solution-step">
+                <div class="step-row">
+                    M = <div class="fraction" style="color: #27ae60;"><span>4.840.000</span><span class="fdn-dark"> (1,1)<sup>2</sup> </span></div>
+                </div>
+                <div class="step-row">
+                    M = <div class="fraction" style="color: #27ae60;"><span>4.840.000</span><span class="fdn-dark"> 1,21 </span></div>
+                </div>
+                <div class="step-row"><b>M = Rp4.000.000</b></div>
+            </div>
+        </div>
+
+        <h2>B. ANUITAS</h2>
+        <p>Anuitas adalah pembayaran atau penerimaan dalam jumlah tetap secara berkala (misalnya cicilan bulanan atau tabungan rutin).</p>
+
+        <h3>1. Rumus Nilai Akhir Anuitas Biasa</h3>
+        <div class="math-display">
+            S<sub>n</sub> = A &times; <div class="fraction"><span>(1 + i)<sup>n</sup> &minus; 1</span><span class="fdn">i</span></div>
+        </div>
+        
+        <div class="example-box">
+            <span class="example-title">Contoh Soal 3: Menabung Rutin</span>
+            Menabung Rp1.000.000 tiap akhir tahun selama 3 tahun, bunga 10%.
+            <div class="solution-step">
+                <div class="step-row">
+                    S<sub>3</sub> = 1.000.000 &times; <div class="fraction" style="color: #27ae60;"><span>(1,1)<sup>3</sup> &minus; 1</span><span class="fdn-dark"> 0,1 </span></div>
+                </div>
+                <div class="step-row">
+                    S<sub>3</sub> = 1.000.000 &times; <div class="fraction" style="color: #27ae60;"><span>0,331</span><span class="fdn-dark"> 0,1 </span></div>
+                </div>
+                <div class="step-row">S<sub>3</sub> = 1.000.000 &times; 3,31</div>
+                <div class="step-row"><b>S<sub>3</sub> = Rp3.310.000</b></div>
+            </div>
+        </div>
+
+        <h3>2. Rumus Nilai Sekarang (Present Value)</h3>
+        <div class="math-display">
+            P<sub>n</sub> = A &times; <div class="fraction"><span>1 &minus; (1 + i)<sup>&minus;n</sup></span><span class="fdn">i</span></div>
+        </div>
+
+        <div class="exercise-section">
+            <h3>LATIHAN SOAL MANDIRI</h3>
+            <p><b>Level Dasar:</b></p>
+            <ul>
+                <li>Hitung bunga total jika modal Rp3.000.000 menjadi Rp3.630.000!</li>
+                <li>Rp1.000.000 bunga 10% selama 1 tahun. Berapa saldo akhir?</li>
+            </ul>
+            <p><b>Level Analisis (HOTS):</b></p>
+            <ul>
+                <li>Modal berapa agar menjadi Rp8.820.000 dalam 2 tahun dengan bunga 5%?</li>
+                <li>Ingin memiliki Rp10.000.000 dalam 3 tahun. Menabung tiap akhir tahun bunga 10%. Berapa tabungan tiap tahun?</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Web Matematika - MAN 1 Makassar</p>
+        <p>Kampus Mengajar - Media Pembelajaran Digital</p>
+    </footer>
+
+</body>
+</html>
