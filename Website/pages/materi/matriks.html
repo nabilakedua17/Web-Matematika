@@ -3,217 +3,1076 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi Matriks - Kelas 11</title>
+    <title>Materi Lengkap Matriks - MAN 1 Makassar</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f0f2f5; line-height: 1.6; color: #333; }
-        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
-        .btn-back:hover { background: rgba(255,255,255,0.2); }
+        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #f4f7f6; line-height: 1.6; color: #333; }
+        .navbar { background: #1e3c72; padding: 15px 30px; color: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         
-        .content-container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        h1 { color: #1e3c72; border-bottom: 4px solid #2ecc71; padding-bottom: 10px; text-align: center; }
+        h2 { background: #1e3c72; color: white; padding: 12px 20px; border-radius: 8px; margin-top: 40px; }
+        h3 { color: #2c3e50; border-left: 5px solid #ff8c00; padding-left: 15px; margin-top: 25px; }
+
+        /* Format Matriks Standar */
+        .math-flex { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 15px 0; font-family: "Times New Roman", serif; font-size: 1.2em; }
+        .matrix { position: relative; display: inline-flex; align-items: center; padding: 5px 12px; color: #000; }
+        .matrix::before, .matrix::after { content: ""; position: absolute; top: 0; bottom: 0; width: 8px; border: 2px solid currentColor; }
+        .matrix::before { left: 0; border-right: none; }
+        .matrix::after { right: 0; border-left: none; }
+        .matrix-grid { display: grid; gap: 5px 15px; text-align: center; }
+
+        .fraction { display: inline-block; vertical-align: middle; text-align: center; font-size: 0.85em; }
+        .fraction .num { border-bottom: 1.5px solid currentColor; display: block; padding: 0 5px; }
+        .fraction .den { display: block; padding: 0 5px; }
+
+        .example-box { background: #fdfdfd; border: 1px solid #ddd; padding: 20px; margin: 20px 0; border-radius: 8px; border-left: 5px solid #2ecc71; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #f8f9fa; }
         
-        h1 { color: #1e3c72; border-bottom: 3px solid #2ecc71; padding-bottom: 10px; margin-top: 0; text-align: center; }
-        h2 { color: #ffffff; background: #1e3c72; padding: 12px 20px; border-radius: 8px; margin-top: 50px; text-transform: uppercase; letter-spacing: 1px; }
-        h3 { color: #2c3e50; border-left: 5px solid #ff8c00; padding-left: 15px; margin-top: 30px; }
-
-        /* Penulisan Matematika Profesional */
-        .math-display { 
-            background: #2c3e50; 
-            color: #fff; 
-            padding: 25px; 
-            text-align: center; 
-            border-radius: 15px; 
-            margin: 20px 0; 
-            font-family: "Times New Roman", Times, serif; 
-            font-size: 1.6em;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
-        }
-
-        /* Renderer Matriks */
-        .matrix-container { display: inline-flex; align-items: center; vertical-align: middle; padding: 0 5px; }
-        .bracket { font-size: 2.2em; font-weight: 100; transform: scaleY(1.3); }
-        .matrix-content { display: grid; text-align: center; gap: 5px 15px; padding: 0 10px; font-style: normal; }
-
-        .fraction { display: inline-block; vertical-align: middle; margin: 0 0.3em; text-align: center; font-style: normal; font-size: 0.8em; }
-        .fraction > span { display: block; padding: 0.1em; }
-        .fraction span.fdn { border-top: 2px solid white; }
-        .fraction span.fdn-dark { border-top: 2px solid #333; }
-
-        /* Box Contoh Soal */
-        .example-box { background: #fff; border: 1px solid #ff8c00; border-left: 8px solid #ff8c00; padding: 25px; margin: 30px 0; border-radius: 10px; }
-        .example-title { color: #d35400; font-weight: bold; font-size: 1.1em; margin-bottom: 10px; display: block; }
-        
-        .solution-step { 
-            display: block; 
-            margin-top: 15px; 
-            padding: 15px; 
-            background: #f9f9f9; 
-            border-radius: 8px;
-            font-family: "Times New Roman", serif;
-            font-size: 1.2em;
-            color: #27ae60;
-        }
-        .step-row { display: flex; align-items: center; justify-content: center; margin-bottom: 5px; flex-wrap: wrap; }
-
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; border-radius: 8px; overflow: hidden; }
-        th { background-color: #1e3c72; color: white; padding: 15px; }
-        td { padding: 15px; border: 1px solid #ddd; text-align: center; }
-
-        .exercise-section { background: #f8f9fa; padding: 30px; border-radius: 15px; margin-top: 40px; border: 1px dashed #1e3c72; }
-        
-        footer { text-align: center; padding: 40px; color: #7f8c8d; font-size: 14px; background: #fff; border-top: 1px solid #eee; }
+        footer { text-align: center; padding: 30px; border-top: 1px solid #eee; margin-top: 40px; color: #7f8c8d; }
     </style>
 </head>
 <body>
 
-    <div class="navbar">
-        <a href="../kelas11.html" class="btn-back">← Kembali</a>
-        <span>Materi Matematika Fase F - MAN 1 Makassar</span>
+<div class="navbar">Materi Matematika Fase F - MAN 1 Makassar</div>
+
+<div class="container">
+    <h1>BAB 2 – MATRIKS</h1>
+
+<!-- ================= A ================= -->
+<h2>A. KONSEP DAN JENIS MATRIKS</h2>
+
+<h3>1. Pendahuluan</h3>
+<p>
+Dalam kehidupan sehari-hari, data sering disajikan dalam bentuk tabel agar mudah dibaca dan dianalisis.
+Contohnya nilai siswa, jadwal pelajaran, data penjualan, dan statistik.
+</p>
+
+<p>
+Untuk mempermudah pengolahan data tersebut, matematika menggunakan konsep <b>matriks</b>.
+Matriks sangat penting dalam berbagai bidang seperti komputer, AI, ekonomi, dan teknik.
+</p>
+
+<h3>2. Pengertian Matriks</h3>
+<p>
+Matriks adalah susunan bilangan yang disusun dalam baris dan kolom serta diletakkan dalam tanda kurung.
+</p>
+
+<div class="example-box">
+Contoh:
+<div class="matrix"><div class="matrix-grid" style="grid-template-columns:repeat(2,1fr);">
+<span>2</span><span>4</span>
+<span>1</span><span>3</span>
+</div></div>
+Memiliki 2 baris dan 2 kolom.
+</div>
+
+<h3>3. Istilah Penting dalam Matriks</h3>
+
+    <p><b>a. Baris</b></p>
+    <p>Susunan elemen secara mendatar.</p>
+    <div class="example-box">
+    contoh:
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>2</span> <span>4</span>
+            </div>
+        </div>
+        <span>adalah baris pertama.</span>
     </div>
 
-    <div class="content-container">
-        <h1>BAB 2: MATRIKS</h1>
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
 
-        <h2>A. KONSEP DAN JENIS MATRIKS</h2>
-        
-        <h3>1. Pengertian Matriks</h3>
-        <p>Matriks adalah susunan bilangan yang diatur dalam baris dan kolom di dalam tanda kurung. Matriks digunakan dalam berbagai bidang seperti Sistem Persamaan Linear, Kriptografi, hingga Kecerdasan Buatan (AI).</p>
-
-        <div class="math-display">
-            A<sub>m &times; n</sub> = 
-            <div class="matrix-container">
-                <span class="bracket">[</span>
-                <div class="matrix-content" style="grid-template-columns: repeat(2, auto);">
-                    <span>a<sub>11</sub></span> <span>a<sub>12</sub></span>
-                    <span>a<sub>21</sub></span> <span>a<sub>22</sub></span>
-                </div>
-                <span class="bracket">]</span>
+    <p><b>b. Kolom</b></p>
+    <p>Susunan elemen secara tegak.</p>
+    <div class="example-box">
+    contoh:
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: 1fr;">
+                <span>2</span>
+                <span>1</span>
             </div>
         </div>
+        <span>adalah kolom pertama.</span>
+    </div>
 
-        <h3>2. Istilah Penting</h3>
-        <ul>
-            <li><b>Baris:</b> Susunan elemen secara mendatar.</li>
-            <li><b>Kolom:</b> Susunan elemen secara tegak.</li>
-            <li><b>Ordo:</b> Ukuran matriks (Baris &times; Kolom).</li>
-        </ul>
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
 
-        <h3>3. Jenis-Jenis Matriks</h3>
-        <table>
-            <tr><th>Jenis Matriks</th><th>Keterangan</th></tr>
-            <tr><td>Matriks Identitas (I)</td><td>Diagonal utama bernilai 1, lainnya 0.</td></tr>
-            <tr><td>Matriks Nol (O)</td><td>Semua elemen bernilai 0.</td></tr>
-            <tr><td>Matriks Persegi</td><td>Jumlah baris sama dengan jumlah kolom.</td></tr>
-            <tr><td>Matriks Skalar</td><td>Matriks diagonal dengan angka yang sama.</td></tr>
-        </table>
-
-        <h2>B. TRANSPOS DAN KESAMAAN MATRIKS</h2>
-        
-        <h3>1. Transpos Matriks (A<sup>T</sup>)</h3>
-        <p>Transpos diperoleh dengan menukar baris menjadi kolom. Jika ordo awal <i>m &times; n</i>, maka ordo transposnya adalah <i>n &times; m</i>.</p>
-
-        <div class="example-box">
-            <span class="example-title">Contoh Transpos:</span>
-            Jika A = 
-            <div class="matrix-container">
-                <span class="bracket">[</span>
-                <div class="matrix-content" style="grid-template-columns: auto auto;">
-                    <span>1</span> <span>2</span>
-                    <span>3</span> <span>4</span>
-                    <span>5</span> <span>6</span>
-                </div>
-                <span class="bracket">]</span>
-            </div>, maka tentukan A<sup>T</sup>!
-            <div class="solution-step">
-                A<sup>T</sup> = 
-                <div class="matrix-container">
-                    <span class="bracket">[</span>
-                    <div class="matrix-content" style="grid-template-columns: auto auto auto;">
-                        <span>1</span> <span>3</span> <span>5</span>
-                        <span>2</span> <span>4</span> <span>6</span>
-                    </div>
-                    <span class="bracket">]</span>
-                </div>
+    <p><b>c. Elemen Matriks</b></p>
+    <p>Setiap bilangan di dalam matriks disebut elemen.</p>
+    <div class="example-box">
+    contoh:
+        <span>A =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>5</span> <span>7</span>
+                <span>2</span> <span>9</span>
             </div>
-        </div>
-
-        <h3>2. Kesamaan Dua Matriks</h3>
-        <p>Dua matriks dikatakan sama jika memiliki ordo yang sama dan elemen-elemen yang seletak nilainya sama.</p>
-
-        <h2>C. OPERASI MATRIKS</h2>
-
-        <h3>1. Penjumlahan & Pengurangan</h3>
-        <p>Dilakukan dengan menjumlahkan atau mengurangkan elemen yang seletak. Syarat: <b>Ordo harus sama</b>.</p>
-
-        <h3>2. Perkalian Dua Matriks</h3>
-        <p>Baris matriks pertama dikalikan dengan kolom matriks kedua. Syarat: Kolom matriks pertama = Baris matriks kedua.</p>
-
-        <div class="example-box">
-            <span class="example-title">Contoh Perkalian Matriks:</span>
-            Hitung perkalian matriks [1 2] dengan [3; 4]!
-            <div class="solution-step">
-                [1 &times; 3] + [2 &times; 4] = 3 + 8 = <b>11</b>
-            </div>
-        </div>
-
-        <h2>D. DETERMINAN MATRIKS</h2>
-        
-        <h3>1. Determinan Ordo 2 &times; 2</h3>
-        <div class="math-display">
-            det(A) = |A| = ad &minus; bc
-        </div>
-
-        <div class="example-box">
-            <span class="example-title">Contoh Determinan:</span>
-            Cari determinan dari matriks 
-            <div class="matrix-container">
-                <span class="bracket">[</span>
-                <div class="matrix-content" style="grid-template-columns: auto auto;">
-                    <span>5</span> <span>2</span>
-                    <span>4</span> <span>3</span>
-                </div>
-                <span class="bracket">]</span>
-            </div>
-            <div class="solution-step">
-                det = (5 &times; 3) &minus; (2 &times; 4) = 15 &minus; 8 = <b>7</b>
-            </div>
-        </div>
-
-        <h2>E. INVERS MATRIKS (2 &times; 2)</h2>
-        <div class="math-display">
-            A<sup>-1</sup> = 
-            <div class="fraction"><span>1</span><span class="fdn">det(A)</span></div>
-            &times; 
-            <div class="matrix-container">
-                <span class="bracket">[</span>
-                <div class="matrix-content" style="grid-template-columns: auto auto;">
-                    <span>d</span> <span>&minus;b</span>
-                    <span>&minus;c</span> <span>a</span>
-                </div>
-                <span class="bracket">]</span>
-            </div>
-        </div>
-
-        <div class="exercise-section">
-            <h3>LATIHAN SOAL MANDIRI</h3>
-            <p><b>Level Dasar:</b></p>
-            <ul>
-                <li>Tentukan ordo matriks B = [1 0 5; 2 1 6]!</li>
-                <li>Jika A = [x 4; 3 6] dan B = [10 4; 3 6], berapakah nilai x agar A = B?</li>
-            </ul>
-            <p><b>Level Analisis:</b></p>
-            <ul>
-                <li>Hitung determinan matriks [2 4; 1 3]!</li>
-                <li>Tentukan nilai x agar matriks [x 2; 8 x] memiliki determinan nol (Matriks Singular)!</li>
-                <li>Tentukan hasil transpos dari matriks kolom [7; 8; 9]!</li>
-            </ul>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Web Matematika - MAN 1 Makassar</p>
-        <p>Kampus Mengajar - Media Pembelajaran Digital</p>
-    </footer>
+    <p>Elemen-elemen matriks:</p>
+    <ul style="list-style-type: disc; margin-left: 40px;">
+        <li>a<sub>11</sub> = 5</li>
+        <li>a<sub>12</sub> = 7</li>
+        <li>a<sub>21</sub> = 2</li>
+        <li>a<sub>22</sub> = 9</li>
+    </ul>
+<h3>4. Notasi Matriks</h3>
+    <p>Matriks biasanya diberi nama huruf kapital:</p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-style: italic; font-size: 1.4em; font-weight: bold;">A, B, C, D</p>
+
+    <p>Elemen matriks ditulis:</p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-style: italic; font-size: 1.4em;">a<sub>ij</sub></p>
+
+    <p>Artinya:</p>
+    <ul style="list-style-type: disc; margin-left: 40px;">
+        <li>i = baris ke-i</li>
+        <li>j = kolom ke-j</li>
+    </ul>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
+
+    <div class="example-box">
+    contoh:
+        <span style="font-style: italic; font-weight: bold;">A =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>1</span> <span>2</span> <span>3</span>
+                <span>4</span> <span>5</span> <span>6</span>
+            </div>
+        </div>
+    </div>
+
+    <p>Maka:</p>
+    <ul style="list-style-type: disc; margin-left: 40px; font-family: 'Times New Roman', serif; font-size: 1.2em;">
+        <li>a<sub>11</sub> = 1</li>
+        <li>a<sub>13</sub> = 3</li>
+        <li>a<sub>22</sub> = 5</li>
+    </ul>
+
+<h3>5. Ordo Matriks</h3>
+<p>
+Ukuran matriks adalah banyak baris × kolom.
+</p>
+
+<div class="example-box">
+contoh:
+<div class="matrix"><div class="matrix-grid" style="grid-template-columns:repeat(3,1fr);">
+<span>1</span><span>2</span><span>3</span>
+<span>4</span><span>5</span><span>6</span>
+</div></div>
+Ordo = 2 × 3
+</div>
+
+<h3>6. Jenis Matriks</h3>
+<p><b>a. Matriks Baris</b></p>
+    <p>Matriks yang hanya memiliki 1 baris.</p>
+    <div class="example-box">
+    contoh:
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>2</span> <span>4</span> <span>6</span>
+            </div>
+        </div>
+        <span>ordo: 1 x 3</span>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+    <p><b>b. Matriks Kolom</b></p>
+    <p>Matriks yang hanya memiliki 1 kolom.</p>
+    <div class="example-box">
+    contoh:
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: 1fr;">
+                <span>3</span>
+                <span>3</span>
+                <span>7</span>
+            </div>
+        </div>
+        <span>ordo: 3 x 1</span>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+    <p><b>c. Matriks Persegi Panjang</b></p>
+    <p>Jumlah baris ≠ jumlah kolom.</p>
+    <div class="example-box">
+    contoh:
+        <span>A =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>1</span> <span>2</span> <span>3</span>
+                <span>4</span> <span>5</span> <span>6</span>
+            </div>
+        </div>
+        <span>ordo 2 x 3</span>
+    </div>
+
+    <p><b>d. Matriks Persegi</b></p>
+    <p>Jumlah baris = jumlah kolom.</p>
+    <div class="example-box">
+    contoh:
+        <span>A =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>1</span> <span>2</span>
+                <span>4</span> <span>5</span>
+            </div>
+        </div>
+        <span>ordo 2 x 2</span>
+    </div>
+
+    <p><b>e. Matriks Nol</b></p>
+    <p>Semua elemennya bernilai nol.</p>
+    <div class="example-box">
+        <span>A =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>0</span> <span>0</span>
+                <span>0</span> <span>0</span>
+            </div>
+        </div>
+    </div>
+
+     <p><b>f. Matriks Identitas</b></p>
+    <p>Elemen diagonal utama = 1, lainnya = 0</p>
+    <div class="example-box">
+        <span>I =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>1</span> <span>0</span>
+                <span>0</span> <span>1</span>
+            </div>
+        </div>
+        <span>untuk ordo 3 x 3</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>1</span> <span>0</span> <span>0</span>
+                <span>0</span> <span>1</span> <span>0</span>
+                <span>0</span> <span>0</span> <span>1</span>
+            </div>
+        </div>
+    </div>
+
+    <p><b>g. Matriks Diagonal</b></p>
+    <p>Elemen selain diagonal utama bernilai nol.</p>
+    <div class="example-box">
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>4</span> <span>0</span>
+                <span>0</span> <span>7</span>
+            </div>
+        </div>
+    </div>
+
+    <p><b>h. Matriks Skalar</b></p>
+    <p>Matriks diagonal dengan diagonal utama bernilai sama.</p>
+    <div class="example-box">
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>5</span> <span>0</span>
+                <span>0</span> <span>5</span>
+            </div>
+        </div>
+    </div>
+
+    <p><b>i. Matriks Segitiga Atas</b></p>
+    <p>Elemen di bawah diagonal utama nol.</p>
+    <div class="example-box">
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>1</span> <span>2</span> <span>3</span>
+                <span>0</span> <span>4</span> <span>5</span>
+                <span>0</span> <span>0</span> <span>6</span>
+            </div>
+        </div>
+    </div>
+
+    <p><b>j. Matriks Segitiga Bawah</b></p>
+    <p>Elemen di bawah diagonal utama nol.</p>
+    <div class="example-box">
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>1</span> <span>0</span> <span>0</span>
+                <span>2</span> <span>4</span> <span>0</span>
+                <span>3</span> <span>5</span> <span>6</span>
+            </div>
+        </div>
+    </div>
+
+<h3>7. Diagonal Utama</h3>
+<p>Elemen dari kiri atas ke kanan bawah.</p>
+<div class="example-box">
+    contoh:
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>2</span> <span>1</span> <span>4</span>
+                <span>3</span> <span>5</span> <span>6</span>
+                <span>7</span> <span>8</span> <span>9</span>
+            </div>
+        </div>
+        <span> Diagonal utama: 2, 5, 9</span>
+    </div>
+<h3>8. Penerapan Matriks dalam Kehidupan</h3>
+<div class="example-box">
+    <p><b>Contoh 1: Nilai Siswa</b></p>
+    <table style="width: auto; margin: 10px 0; border: 1px solid #333;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+                <th style="border: 1px solid #333; padding: 8px;">Nama</th>
+                <th style="border: 1px solid #333; padding: 8px;">MTK</th>
+                <th style="border: 1px solid #333; padding: 8px;">Fisika</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="border: 1px solid #333; padding: 8px;">Ani</td>
+                <td style="border: 1px solid #333; padding: 8px;">80</td>
+                <td style="border: 1px solid #333; padding: 8px;">85</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #333; padding: 8px;">Budi</td>
+                <td style="border: 1px solid #333; padding: 8px;">75</td>
+                <td style="border: 1px solid #333; padding: 8px;">90</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Ditulis matriks:</p>
+    <div class="math-container">
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>80</span> <span>85</span>
+                <span>75</span> <span>90</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div style="margin-top: 40px;"></div>
+<div class="example-box">
+    <p><b>Contoh 2: Penjualan Barang</b></p>
+    <table style="width: auto; margin: 10px 0; border: 1px solid #333;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+                <th style="border: 1px solid #333; padding: 8px;">Hari</th>
+                <th style="border: 1px solid #333; padding: 8px;">Roti</th>
+                <th style="border: 1px solid #333; padding: 8px;">Susu</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="border: 1px solid #333; padding: 8px;">Senin</td>
+                <td style="border: 1px solid #333; padding: 8px;">10</td>
+                <td style="border: 1px solid #333; padding: 8px;">5</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #333; padding: 8px;">Selasa</td>
+                <td style="border: 1px solid #333; padding: 8px;">8</td>
+                <td style="border: 1px solid #333; padding: 8px;">7</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Matriks:</p>
+    <div class="math-container">
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>10</span> <span>5</span>
+                <span>8</span> <span>7</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ================= B ================= -->
+<h2>B. TRANSPOS DAN KESAMAAN MATRKS</h2>
+
+<h3>1. Pengertian Transpos Matriks</h3>
+    <p>Transpos matriks adalah matriks baru yang diperoleh dengan menukar baris menjadi kolom dan kolom menjadi baris.</p>
+    
+    <p>Jika matriks <i>A</i> ditransposkan, ditulis:</p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.5em; font-weight: bold;">A<sup>T</sup></p>
+    
+    <p>atau kadang ditulis:</p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.5em; font-weight: bold;">A'</p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;">
+
+<h3>2. Bentuk Umum Transpos</h3>
+    <p>Jika:</p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">A =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>a<sub>11</sub></span> <span>a<sub>12</sub></span> <span>a<sub>13</sub></span>
+                <span>a<sub>21</sub></span> <span>a<sub>22</sub></span> <span>a<sub>23</sub></span>
+            </div>
+        </div>
+    </div>
+
+    <p>Maka:</p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">A<sup>T</sup> =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>a<sub>11</sub></span> <span>a<sub>21</sub></span>
+                <span>a<sub>12</sub></span> <span>a<sub>22</sub></span>
+                <span>a<sub>13</sub></span> <span>a<sub>23</sub></span>
+            </div>
+        </div>
+    </div>
+
+<h3>3. Cara Menentukan Transpos Matriks</h3>
+    <p><b>Langkah-langkah:</b></p>
+    <p>Langkah 1: Perhatikan baris pertama matriks asal.</p>
+    <p>Langkah 2: Ubah menjadi kolom pertama.</p>
+    <p>Langkah 3: Baris kedua menjadi kolom kedua, dan seterusnya.</p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 25px 0;">
+<div class="example-box">
+    <p><b>Contoh 1</b></p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">A =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>1</span> <span>2</span>
+                <span>3</span> <span>4</span>
+            </div>
+        </div>
+    </div>
+    <p>Maka:</p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">A<sup>T</sup> =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>1</span> <span>3</span>
+                <span>2</span> <span>4</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
+<div class="example-box">
+    <p><b>Contoh 2</b></p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">B =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>2</span> <span>5</span> <span>7</span>
+            </div>
+        </div>
+    </div>
+    <p>Maka:</p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">B<sup>T</sup> =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: 1fr;">
+                <span>2</span>
+                <span>5</span>
+                <span>7</span>
+            </div>
+        </div>
+    </div>
+    <p><i>(Matriks baris menjadi matriks kolom)</i></p>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;">
+</div>
+<div class="example-box">
+    <p><b>Contoh 3</b></p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">C =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: 1fr;">
+                <span>1</span>
+                <span>4</span>
+                <span>6</span>
+            </div>
+        </div>
+    </div>
+    <p>Maka:</p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">C<sup>T</sup> =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>1</span> <span>4</span> <span>6</span>
+            </div>
+        </div>
+    </div>
+    <p><i>(Matriks kolom menjadi matriks baris)</i></p>
+</div>
+<h3>4. Sifat-Sifat Transpos Matriks</h3>
+
+    <p><b>a. Transpos dari transpos</b></p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.4em; font-weight: bold;">
+        (A<sup>T</sup>)<sup>T</sup> = A
+    </p>
+    <p>Artinya jika ditranspos dua kali, kembali ke bentuk semula.</p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+
+    <p><b>b. Penjumlahan</b></p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.4em; font-weight: bold;">
+        (A + B)<sup>T</sup> = A<sup>T</sup> + B<sup>T</sup>
+    </p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+
+    <p><b>c. Perkalian skalar</b></p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.4em; font-weight: bold;">
+        (kA)<sup>T</sup> = kA<sup>T</sup>
+    </p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+
+    <p><b>d. Perkalian matriks</b></p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.4em; font-weight: bold;">
+        (AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup>
+    </p>
+    <p>Urutan dibalik.</p>
+
+<!-- ================= C ================= -->
+<h2>C. OPERASI MATRIKS</h2>
+
+<h3>1. Penjumlahan Matriks</h3>
+    
+    <p><b>Pengertian</b></p>
+    <p>Dua matriks dapat dijumlahkan jika mempunyai ordo yang sama.</p>
+    
+    <div class="math-container">
+        <span>Jika:</span>
+        <span style="margin: 0 10px; font-style: italic;">A = (a<sub>ij</sub>), B = (b<sub>ij</sub>)</span>
+    </div>
+
+    <p>maka:</p>
+    <div class="math-container">
+        <span style="font-weight: bold; font-style: italic;">A + B = (a<sub>ij</sub> + b<sub>ij</sub>)</span>
+    </div>
+    <p>Artinya, setiap elemen dijumlahkan dengan elemen yang seletak.</p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;">
+<div class="example-box">
+    <p><b>Contoh 1</b></p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">A =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>1</span> <span>2</span>
+                <span>3</span> <span>4</span>
+            </div>
+        </div>
+        <span style="margin: 0 10px; font-style: italic; font-weight: bold;">, B =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>5</span> <span>6</span>
+                <span>7</span> <span>8</span>
+            </div>
+        </div>
+    </div>
+
+    <p>Maka:</p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">A + B =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>1 + 5</span> <span>2 + 6</span>
+                <span>3 + 7</span> <span>4 + 8</span>
+            </div>
+        </div>
+        <span style="margin: 0 10px; font-weight: bold;">=</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>6</span> <span>8</span>
+                <span>10</span> <span>12</span>
+            </div>
+        </div>
+    </div>
+</div>
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+<div class="example-box">
+    <p><b>Contoh 2</b></p>
+    <div class="math-container">
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>2</span> <span>1</span> <span>3</span>
+            </div>
+        </div>
+        <span style="margin: 0 10px; font-weight: bold;">+</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>4</span> <span>5</span> <span>6</span>
+            </div>
+        </div>
+        <span style="margin: 0 10px; font-weight: bold;">=</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>6</span> <span>6</span> <span>9</span>
+            </div>
+        </div>
+    </div>
+</div>
+<h3>2. Pengurangan Matriks</h3>
+    
+    <p><b>Pengertian</b></p>
+    <p>Sama seperti penjumlahan, pengurangan hanya dapat dilakukan jika ordo sama.</p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.4em; font-weight: bold; font-style: italic;">
+        A &minus; B = (a<sub>ij</sub> &minus; b<sub>ij</sub>)
+    </p>
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 25px 0;">
+<div class="example-box">
+    <p><b>Contoh</b></p>
+    <div class="math-container">
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>8</span> <span>6</span>
+                <span>5</span> <span>4</span>
+            </div>
+        </div>
+        <span style="margin: 0 10px; font-weight: bold;">&minus;</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>3</span> <span>2</span>
+                <span>1</span> <span>1</span>
+            </div>
+        </div>
+        <span style="margin: 0 10px; font-weight: bold;">=</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>5</span> <span>4</span>
+                <span>4</span> <span>3</span>
+            </div>
+        </div>
+    </div>
+</div>
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 40px 0;">
+
+    <h3>3. Perkalian Matriks dengan Skalar</h3>
+
+    <p><b>Pengertian</b></p>
+    <p>Skalar adalah bilangan biasa.</p>
+    <p>Jika k adalah bilangan real dan A matriks, maka:</p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.4em; font-weight: bold; font-style: italic;">
+        kA = (ka<sub>ij</sub>)
+    </p>
+    <p>Artinya setiap elemen dikali k.</p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 25px 0;">
+<div class="example-box">
+    <p><b>Contoh</b></p>
+    <div class="math-container">
+        <span style="font-size: 1.2em; font-weight: bold; margin-right: 5px;">2</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>1</span> <span>3</span>
+                <span>2</span> <span>4</span>
+            </div>
+        </div>
+        <span style="margin: 0 10px; font-weight: bold;">=</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>2</span> <span>6</span>
+                <span>4</span> <span>8</span>
+            </div>
+        </div>
+    </div>
+</div>
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+<div class="example-box">
+    <p><b>Contoh Negatif</b></p>
+    <div class="math-container">
+        <span style="font-size: 1.2em; font-weight: bold; margin-right: 5px;">&minus;3</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>2</span> <span>1</span>
+                <span>0</span> <span>5</span>
+            </div>
+        </div>
+        <span style="margin: 0 10px; font-weight: bold;">=</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>&minus;6</span> <span>&minus;3</span>
+                <span>0</span> <span>&minus;15</span>
+            </div>
+        </div>
+    </div>
+</div>
+<h3>4. Perkalian Dua Matriks</h3>
+    <p><b>Syarat Perkalian Matriks</b></p>
+    <p>Jika:</p>
+    <ul style="list-style-type: disc; margin-left: 40px;">
+        <li>A berordo m &times; n</li>
+        <li>B berordo n &times; p</li>
+    </ul>
+    <p>Maka perkalian <b>AB</b> dapat dilakukan dan hasilnya berordo: <b>m &times; p</b></p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 25px 0;">
+
+    <p><b>Cara Mengalikan</b></p>
+    <p>Baris matriks pertama dikali kolom matriks kedua.</p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 25px 0;">
+<div class="example-box">
+    <p><b>Contoh 1 (2&times;2)</b></p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">A =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>1</span> <span>2</span>
+                <span>3</span> <span>4</span>
+            </div>
+        </div>
+        <span style="margin: 0 10px; font-style: italic; font-weight: bold;">, B =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>2</span> <span>1</span>
+                <span>0</span> <span>5</span>
+            </div>
+        </div>
+    </div>
+
+    <p>Hitung: <b>AB</b></p>
+
+    <div class="exercise-section" style="background-color: #fcfcfc; border: 1px solid #ddd; padding: 20px;">
+        <p><b>Langkah:</b></p>
+        
+        <p>Elemen baris 1 kolom 1:</p>
+        <p style="text-indent: 30px;">(1)(2) + (2)(0) = <b>2</b></p>
+
+        <p>Baris 1 kolom 2:</p>
+        <p style="text-indent: 30px;">(1)(1) + (2)(5) = <b>11</b></p>
+
+        <p>Baris 2 kolom 1:</p>
+        <p style="text-indent: 30px;">(3)(2) + (4)(0) = <b>6</b></p>
+
+        <p>Baris 2 kolom 2:</p>
+        <p style="text-indent: 30px;">(3)(1) + (4)(5) = <b>23</b></p>
+    </div>
+
+    <p><b>Hasil:</b></p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">AB =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>2</span> <span>11</span>
+                <span>6</span> <span>23</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="example-box">
+<p><b>Contoh 2 (2&times;3 dikali 3&times;1)</b></p>
+    <div class="math-container">
+        <span style="font-weight: bold; font-style: italic;">A =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>1</span> <span>2</span> <span>3</span>
+                <span>4</span> <span>5</span> <span>6</span>
+            </div>
+        </div>
+        <span style="margin: 0 10px; font-weight: bold; font-style: italic;">, B =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: 1fr;">
+                <span>1</span>
+                <span>0</span>
+                <span>2</span>
+            </div>
+        </div>
+    </div>
+
+    <p><b>Hasil ordo:</b></p>
+    <p style="text-align: center; font-weight: bold;">2 &times; 1</p>
+
+    <div class="exercise-section" style="border: 1px solid #eee; padding: 20px;">
+        <p><b>Perhitungan:</b></p>
+        <p>Baris 1:</p>
+        <p style="text-indent: 20px;">1(1) + 2(0) + 3(2) = <b>7</b></p>
+        <p>Baris 2:</p>
+        <p style="text-indent: 20px;">4(1) + 5(0) + 6(2) = <b>16</b></p>
+    </div>
+
+    <p><b>Hasil:</b></p>
+    <div class="math-container">
+        <span style="font-weight: bold; font-style: italic;">AB =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: 1fr;">
+                <span>7</span>
+                <span>16</span>
+            </div>
+        </div>
+    </div>
+</div>
+<h3>5. Sifat-Sifat Penjumlahan Matriks</h3>
+
+    <p><b>a. Komutatif</b></p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.4em; font-weight: bold;">
+        A + B = B + A
+    </p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+
+    <p><b>b. Asosiatif</b></p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.4em; font-weight: bold;">
+        (A + B) + C = A + (B + C)
+    </p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+
+    <p><b>c. Identitas</b></p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.4em; font-weight: bold;">
+        A + O = A
+    </p>
+    <p>(O = matriks nol)</p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+
+    <p><b>d. Invers Penjumlahan</b></p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.4em; font-weight: bold;">
+        A + (&minus;A) = O
+    </p>
+
+<!-- ================= D ================= -->
+<h2>D. DETERMINAN</h2>
+
+<h3>1. Pengertian Determinan</h3>
+    <p>Determinan adalah <b>nilai skalar</b> yang diperoleh dari elemen-elemen suatu matriks persegi.</p>
+    
+    <p>Jika matriks A, maka determinannya ditulis:</p>
+    <div style="background-color: #f9f9f9; padding: 10px; display: inline-block; border-radius: 4px; font-family: 'Times New Roman', serif; font-size: 1.2em;">
+        det (A) atau | A |
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;">
+
+<h3>2. Syarat Matriks Memiliki Determinan</h3>
+    <p>Matriks harus berbentuk persegi:</p>
+    <ul style="list-style-type: none; margin-left: 20px;">
+        <li>2 &times; 2</li>
+        <li>3 &times; 3</li>
+        <li>4 &times; 4 dan seterusnya</li>
+    </ul>
+<div class="example-box">
+    <p><b>Contoh:</b></p>
+    <div class="math-container">
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>1</span> <span>2</span>
+                <span>3</span> <span>4</span>
+            </div>
+        </div>
+        <span style="margin-left: 15px;">memiliki determinan.</span>
+    </div>
+</div>
+<div class="example-box">
+    <p>Sedangkan:</p>
+    <div class="math-container">
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>1</span> <span>2</span> <span>3</span>
+                <span>4</span> <span>5</span> <span>6</span>
+            </div>
+        </div>
+    </div>
+</div>
+    <p style="margin-top: 10px;">tidak memiliki determinan karena bukan matriks persegi.</p>
+
+<h3>3. Determinan Matriks Ordo 2 &times; 2</h3>
+    
+    <p>Jika:</p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">A =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>a</span> <span>b</span>
+                <span>c</span> <span>d</span>
+            </div>
+        </div>
+    </div>
+
+    <p>Maka:</p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.4em; font-weight: bold; font-style: italic;">
+        det (A) = ad &minus; bc
+    </p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;">
+<div class="example-box">
+    <p><b>Contoh 1</b></p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">A =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>2</span> <span>3</span>
+                <span>1</span> <span>4</span>
+            </div>
+        </div>
+    </div>
+
+    <p>Maka:</p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.2em; font-weight: bold;">
+        det (A) = (2)(4) &minus; (3)(1) = 8 &minus; 3 = 5
+    </p>
+</div>
+<h3>4. Determinan Matriks 3 &times; 3</h3>
+    <p>Jika:</p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">A =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <span>a</span> <span>b</span> <span>c</span>
+                <span>d</span> <span>e</span> <span>f</span>
+                <span>g</span> <span>h</span> <span>i</span>
+            </div>
+        </div>
+    </div>
+
+    <p>Nilai determinannya dapat dihitung menggunakan metode berikut:</p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;">
+
+    <p><b>a. Metode Sarrus</b></p>
+    <p>Salin dua kolom pertama ke sebelah kanan matriks:</p>
+    
+    <div style="text-align: center; font-family: 'Courier New', monospace; font-size: 1.2em; letter-spacing: 12px; margin: 20px 0;">
+        a b c | a b<br>
+        d e f | d e<br>
+        g h i | g h
+    </div>
+
+    <p>Maka:</p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.3em; font-weight: bold; font-style: italic;">
+        det(A) = (aei + bfg + cdh) &minus; (ceg + bdi + afh)
+    </p>
+
+    <div class="example-box">
+        <p><b>Contoh Hitung</b></p>
+        <div class="math-container">
+            <span style="font-style: italic; font-weight: bold;">A =</span>
+            <div class="matrix">
+                <div class="matrix-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <span>1</span> <span>2</span> <span>3</span>
+                    <span>0</span> <span>1</span> <span>4</span>
+                    <span>5</span> <span>6</span> <span>0</span>
+                </div>
+            </div>
+        </div>
+        <p>Maka:</p>
+        <p>Diagonal Turun: (1)(1)(0) + (2)(4)(5) + (3)(0)(6) = <b>40</b></p>
+        <p>Diagonal Naik: (3)(1)(5) + (1)(4)(6) + (2)(0)(0) = <b>39</b></p>
+        <p style="text-align: center; font-weight: bold; font-size: 1.2em;">det(A) = 40 &minus; 39 = 1</p>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;">
+
+    <p><b>b. Ekspansi Kofaktor</b></p>
+    <p>Menggunakan elemen baris pertama:</p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.3em; font-weight: bold;">
+        det(A) = a<sub>11</sub>C<sub>11</sub> + a<sub>12</sub>C<sub>12</sub> + a<sub>13</sub>C<sub>13</sub>
+    </p>
+    <p>Dimana <b>C<sub>ij</sub> = (&minus;1)<sup>i+j</sup> M<sub>ij</sub></b> (M = Minor).</p>
+<!-- ================= E ================= -->
+<h2>E. INVERS MATRIKS</h2>
+
+<h3>1. Pengertian Invers Matriks</h3>
+    <p>Jika A adalah matriks persegi, maka invers A adalah matriks yang jika dikalikan dengan A menghasilkan matriks identitas.</p>
+    <p>Ditulis:</p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.3em; font-weight: bold;">
+        AA<sup>&minus;1</sup> = A<sup>&minus;1</sup>A = I
+    </p>
+    <p>Keterangan:</p>
+    <ul>
+        <li>A<sup>&minus;1</sup> = invers matriks A</li>
+        <li>I = matriks identitas</li>
+    </ul>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;">
+
+<h3>2. Syarat Matriks Memiliki Invers</h3>
+    <p>Suatu matriks hanya memiliki invers jika:</p>
+    <p><b>a. Matriks persegi</b><br>Jumlah baris = jumlah kolom</p>
+    <p><b>b. Determinan tidak nol</b></p>
+    <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.2em; font-weight: bold;">
+        det (A) &ne; 0
+    </p>
+    <p>Jika determinan = 0, maka matriks <b>tidak memiliki invers</b>.</p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;">
+
+<h3>3. Invers Matriks 2 &times; 2</h3>
+    <p>Jika:</p>
+    <div class="math-container">
+        <span style="font-style: italic; font-weight: bold;">A =</span>
+        <div class="matrix">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>a</span> <span>b</span>
+                <span>c</span> <span>d</span>
+            </div>
+        </div>
+    </div>
+
+    <p>Maka:</p>
+    <div style="text-align: center; margin: 20px 0;">
+        <span style="font-family: 'Times New Roman', serif; font-size: 1.4em; font-weight: bold; vertical-align: middle;">
+            A<sup>&minus;1</sup> = 
+            <div style="display: inline-block; vertical-align: middle; text-align: center; margin-right: 10px;">
+                <div style="border-bottom: 1px solid black; padding: 0 5px;">1</div>
+                <div style="padding: 0 5px;">ad &minus; bc</div>
+            </div>
+        </span>
+        <div class="matrix" style="display: inline-block; vertical-align: middle;">
+            <div class="matrix-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <span>d</span> <span>&minus;b</span>
+                <span>&minus;c</span> <span>a</span>
+            </div>
+        </div>
+    </div>
+
+<h3>6. Invers Matriks 3 &times; 3</h3>
+    <p>Untuk mencari invers matriks berordo 3 &times; 3, dapat digunakan dua metode utama:</p>
+
+    <hr style="border: 0; border-top: 1px solid #ccc; margin: 30px 0;">
+
+    <div class="method-section">
+        <h4>a. Metode Adjoin</h4>
+        <p><b>Rumus:</b></p>
+        <div style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.4em; font-weight: bold; margin: 20px 0;">
+        <span style="vertical-align: middle;">A<sup>&minus;1</sup> = </span>
+        <div style="display: inline-block; vertical-align: middle; text-align: center; margin: 0 10px;">
+            <div style="border-bottom: 2px solid black; padding: 0 10px;">1</div>
+            <div style="padding: 0 10px;">det (A)</div>
+        </div>
+        <span style="vertical-align: middle;">adj (A)</span>
+    </div>
+
+        <p><b>Langkah-langkah:</b></p>
+        <ol>
+            <li>Hitung nilai <b>determinan</b> matriks A.</li>
+            <li>Cari semua <b>kofaktor</b> dari elemen-elemen matriks.</li>
+            <li>Bentuk <b>matriks kofaktor</b>.</li>
+            <li><b>Transpos</b> matriks kofaktor tersebut untuk mendapatkan <b>adjoin</b>.</li>
+            <li>Kalikan hasil adjoin dengan <b>1/det(A)</b>.</li>
+        </ol>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+    <div class="method-section">
+        <h4>b. Metode OBE (Gauss-Jordan)</h4>
+        <p>Metode ini dilakukan dengan menggabungkan matriks A dengan matriks identitas (I):</p>
+        <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.3em; font-weight: bold;">
+            [ A | I ]
+        </p>
+        <p>Lakukan <b>Operasi Baris Elementer (OBE)</b> untuk mengubah bagian kiri (matriks A) menjadi matriks identitas. Hasil pada bagian kanan akan menjadi:</p>
+        <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 1.3em; font-weight: bold;">
+            A<sup>&minus;1</sup>
+        </p>
+        <p><i>*Metode ini lebih efisien dan sering digunakan dalam perhitungan komputer.</i></p>
+    </div>
+
+<footer>
+    <p>&copy; 2026 Media Pembelajaran Digital - MAN 1 Makassar</p>
+</footer>
 
 </body>
 </html>
