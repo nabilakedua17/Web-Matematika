@@ -1,44 +1,227 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Web Matematika</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Pembelajaran Matematika</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- GLOBAL & BODY --- */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif; /* Font baru yang lebih bersih */
+            background-color: #f8fbff; /* Background yang sedikit lebih cerah/biru sangat muda */
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* --- LOGO / NAVBAR (KIRI ATAS) --- */
+        .logo-container {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+            display: flex;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .logo-container span {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 4px; /* Sudut membulat kecil */
+            background-color: #3498db; /* Warna biru muda logo */
+            margin-right: 10px;
+        }
+
+        .logo-container h1 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.95); /* Sedikit transparansi */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- AREA HERO (JUDUL UTAMA) --- */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 180px 20px 100px 20px; /* Jarak lebih luas */
+            background: linear-gradient(135deg, #1e3c72, #2a5298, #1e3c72); /* Gradasi 3 warna */
+            color: white;
+            border-bottom-left-radius: 40px; /* Sudut membulat di bawah */
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 60px; /* Ukuran lebih besar */
+            margin: 0;
+            line-height: 1.2;
+            font-weight: 700;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 19px;
+            opacity: 0.8;
+            margin-top: 15px;
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+
+        /* --- DEKORASI GELOMBANG (Sangat Modern) --- */
+        .hero-waves {
+            position: absolute;
+            bottom: -5px; /* Sedikit di bawah hero */
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: -1;
+        }
+
+        /* --- CONTAINER KARTU --- */
+        .kelas-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px; /* Jarak antar kartu lebih luas */
+            margin: -60px auto 100px auto; /* Membuat kartu melayang naik ke area hero */
+            max-width: 1300px;
+            padding: 0 30px;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* --- DESAIN KARTU MODERN --- */
+        .card {
+            background-color: rgba(255, 255, 255, 0.9); /* Sedikit transparan untuk glassmorphism */
+            backdrop-filter: blur(10px); /* Efek blur kaca */
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px;
+            width: 270px;
+            text-align: center;
+            border-radius: 25px; /* Sudut lebih melingkar */
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06); /* Shadow halus tapi dalam */
+            transition: 0.4s ease-in-out; /* Animasi transisi lambat & halus */
+            border-top: 8px solid #ff9800; /* Warna oranye untuk Kelas 10 */
+            border: 1px solid rgba(255,255,255,0.18);
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Variasi warna atas kartu */
+        .card:nth-child(2) { border-top-color: #3498db; } /* Biru untuk Kelas 11 */
+        .card:nth-child(3) { border-top-color: #2ecc71; } /* Hijau untuk Kelas 12 */
+
+        /* EFek Hover Kartu */
+        .card:hover {
+            transform: translateY(-15px) scale(1.02); /* Melayang lebih tinggi & sedikit membesar */
+            box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #7f8c8d;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* --- TOMBOL MODERN (DI DESAIN ULANG) --- */
+        .card a {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 35px;
+            background: linear-gradient(to right, #ff9800, #ff7100); /* Gradasi oranye */
+            color: white;
+            text-decoration: none;
+            border-radius: 30px; /* Lebih membulat */
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 8px 20px rgba(255, 152, 0, 0.3);
+            transition: 0.3s ease;
+        }
+
+        /* Variasi warna tombol */
+        .card:nth-child(2) a { background: linear-gradient(to right, #3498db, #2980b9); box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3); }
+        .card:nth-child(3) a { background: linear-gradient(to right, #2ecc71, #27ae60); box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3); }
+
+        /* Hover Tombol */
+        .card a:hover {
+            box-shadow: 0 10px 25px rgba(255, 152, 0, 0.5);
+            transform: translateY(-2px);
+        }
+        .card:nth-child(2) a:hover { box-shadow: 0 10px 25px rgba(52, 152, 219, 0.5); }
+        .card:nth-child(3) a:hover { box-shadow: 0 10px 25px rgba(46, 204, 113, 0.5); }
+
+        /* --- FOOTER MODEREN --- */
+        footer {
+            background-color: #121921;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 100px;
+            font-size: 14px;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 40px; }
+            .hero { padding: 150px 20px 80px 20px; }
+            .card { width: 100%; max-width: 320px; }
+            .kelas-container { margin: -30px auto 50px auto; }
+        }
+    </style>
 </head>
 <body>
 
-    <nav>
-        <h2>📘 Math Learning</h2>
-    </nav>
+    <div class="logo-container">
+        <span></span> <h1>Math Learning</h1>
+    </div>
 
-    <section class="hero">
+    <div class="hero">
         <h1>Web Pembelajaran Matematika</h1>
         <p>Belajar mudah, cepat, dan interaktif</p>
-    </section>
+    </div>
 
-    <section class="kelas-container">
+    <div class="kelas-container">
+        
         <div class="card">
-            <h3>Kelas 10</h3>
-            <p>Materi dasar matematika</p>
+            <h2>Kelas 10</h2>
+            <p>Materi dasar matematika untuk memulai perjalananmu di Fase E.</p>
             <a href="pages/kelas10.html">Masuk</a>
         </div>
 
         <div class="card">
-            <h3>Kelas 11</h3>
-            <p>Materi lanjutan</p>
+            <h2>Kelas 11</h2>
+            <p>Eksplorasi konsep matematika tingkat lanjut dan Fase F.</p>
             <a href="pages/kelas11.html">Masuk</a>
         </div>
 
         <div class="card">
-            <h3>Kelas 12</h3>
-            <p>Persiapan ujian</p>
-            <a href="pages/kelas12.html">Masuk</a>
+            <h2>Kelas 12</h2>
+            <p>Persiapan ujian dan materi final untuk menyelesaikan pendidikan menengah.</p>
+            <a href="#">Masuk</a>
         </div>
-    </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Math Learning. Didesain dengan semangat untuk masa depan.</p>
+        <p> Kampus Mengajar Berdampak Jurusan Matematika</p>
+    </footer>
 
 </body>
 </html>
-<footer>
-    <p>© 2026 Web Pembelajaran Matematikaa</p>
-    <p>Kampus Mengajar Berdampak</p>
-    <p>Jurusan Matematika</p>
-</footer>
