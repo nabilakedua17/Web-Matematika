@@ -103,7 +103,7 @@
             width: 270px;
             text-align: center;
             border-radius: 25px; /* Sudut lebih melingkar */
-            box-shadow: 0 15px 40px rgba(0,0,0,0.06); /* Shadow halus tapi dalam */
+            box-shadow: 0 20px 50px rgba(30, 60, 114, 0.15);/* Shadow halus tapi dalam */
             transition: 0.4s ease-in-out; /* Animasi transisi lambat & halus */
             border-top: 8px solid #ff9800; /* Warna oranye untuk Kelas 10 */
             border: 1px solid rgba(255,255,255,0.18);
