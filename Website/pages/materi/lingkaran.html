@@ -3,46 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi lingkaran - Kelas 11</title>
+    <title>Materi Lingkaran - MAN 1 Makassar</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f5f7fa; line-height: 1.6; color: #333; }
-        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        /* STYLE IDENTIK DENGAN BAB SEBELUMNYA */
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f0f2f5; line-height: 1.6; color: #333; }
+        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
         .btn-back:hover { background: rgba(255,255,255,0.2); }
-        .content-container { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
-        h1 { color: #1e3c72; border-bottom: 3px solid #2ecc71; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #2c3e50; margin-top: 30px; border-left: 5px solid #ff8c00; padding-left: 15px; }
-        .info-box { background: #e8f5e9; border-left: 5px solid #2ecc71; padding: 15px; margin: 20px 0; border-radius: 0 10px 10px 0; }
-        footer { text-align: center; padding: 30px; color: #7f8c8d; font-size: 14px; }
-        p { margin-bottom: 15px; }
+        
+        .content-container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1e3c72; border-bottom: 4px solid #3498db; padding-bottom: 10px; margin-top: 0; text-align: center; }
+        h2 { color: #ffffff; background: #3498db; padding: 12px 20px; border-radius: 8px; margin-top: 50px; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { color: #2c3e50; border-left: 5px solid #3498db; padding-left: 15px; margin-top: 30px; }
+
+        /* Penulisan Matematika */
+        .math-display { 
+            background: #2c3e50; color: #fff; padding: 25px; text-align: center; 
+            border-radius: 15px; margin: 20px 0; font-family: "Times New Roman", Times, serif; 
+            font-size: 1.6em; box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        .frac { display: inline-block; vertical-align: middle; text-align: center; font-size: 0.9em; margin: 0 5px; }
+        .frac > span { display: block; padding: 0 5px; }
+        .frac span.nomerator { border-bottom: 2px solid currentColor; }
+
+        /* Box Contoh Soal */
+        .example-box { background: #fff; border: 1px solid #e74c3c; border-left: 8px solid #e74c3c; padding: 25px; margin: 25px 0; border-radius: 10px; }
+        .example-title { color: #c0392b; font-weight: bold; font-size: 1.1em; margin-bottom: 15px; display: block; }
+        
+        .solution-step { 
+            display: block; margin-top: 15px; padding: 20px; background: #f9f9f9; 
+            border-radius: 8px; font-family: "Times New Roman", serif; font-size: 1.2em; color: #3498db; 
+        }
+        .step-line { display: flex; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+
+        .info-box { background: #fff5f5; border-radius: 10px; padding: 20px; margin: 20px 0; border: 1px solid #fab1a0; }
+
+        footer { text-align: center; padding: 40px; color: #7f8c8d; font-size: 14px; background: #fff; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
     <div class="navbar">
         <a href="../kelas11.html" class="btn-back">← Kembali</a>
-        <span>Materi Matematika Fase F</span>
+        <span>Materi Matematika Fase F - MAN 1 Makassar</span>
     </div>
 
     <div class="content-container">
-        <h1>Matriks</h1>
-        
-        <p>Matriks adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom sehingga membentuk suatu bangun persegi atau persegi panjang.</p>
+        <h1>BAB 4: LINGKARAN</h1>
 
+        <h2>A. UNSUR-UNSUR LINGKARAN</h2>
+        <p>Lingkaran adalah kumpulan titik-titik pada bidang datar yang berjarak sama terhadap titik tertentu (titik pusat).</p>
+        
         <div class="info-box">
-            <strong>Catatan Penting:</strong> Ordo matriks ditentukan oleh banyaknya baris dikali banyaknya kolom (m x n). Contoh: Matriks 2x3 memiliki 2 baris dan 3 kolom.
+            <b>Bagian Penting Lingkaran:</b>
+            <ul>
+                <li><b>Titik Pusat (O):</b> Titik yang berada tepat di tengah lingkaran.</li>
+                <li><b>Jari-jari (r):</b> Garis dari titik pusat ke lengkungan lingkaran.</li>
+                <li><b>Diameter (d):</b> Garis lurus yang menghubungkan dua titik pada lengkungan dan melewati pusat (d = 2r).</li>
+                <li><b>Busur:</b> Garis lengkung yang merupakan bagian dari keliling lingkaran.</li>
+                <li><b>Tali Busur:</b> Garis lurus yang menghubungkan dua titik pada lengkungan.</li>
+                <li><b>Tembereng:</b> Daerah yang dibatasi oleh tali busur dan busur.</li>
+                <li><b>Juring:</b> Daerah yang dibatasi oleh dua jari-jari dan sebuah busur.</li>
+            </ul>
         </div>
 
-        <h2>A. Operasi Matriks</h2>
-        <p>Penjumlahan dan pengurangan matriks hanya dapat dilakukan jika kedua matriks memiliki ordo yang sama. Sedangkan perkalian matriks memerlukan jumlah kolom matriks pertama sama dengan jumlah baris matriks kedua.</p>
+        
 
-        <h2>B. Determinan & Invers</h2>
-        <p>Determinan merupakan nilai yang dapat dihitung dari unsur-unsur suatu matriks persegi. Invers matriks adalah kebalikan dari suatu matriks yang jika dikalikan dengan matriks asalnya akan menghasilkan matriks identitas.</p>
+[Image of parts of a circle including radius, diameter, chord, arc, sector, and segment]
+
+
+        <h2>B. KELILING DAN LUAS LINGKARAN</h2>
+        <p>Untuk menghitung lingkaran, kita menggunakan konstanta <b>&pi; (phi)</b> yang bernilai 3,14 atau <div class="frac"><span class="nomerator">22</span><span class="denominator">7</span></div>.</p>
+
+        <div class="math-display">
+            Keliling (K) = 2 &pi; r &nbsp; atau &nbsp; &pi; d <br>
+            Luas (L) = &pi; r²
+        </div>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal 1: Menghitung Luas</span>
+            Sebuah lingkaran memiliki jari-jari 7 cm. Tentukan luasnya!
+            <div class="solution-step">
+                <div class="step-line">L = &pi; &times; r &times; r</div>
+                <div class="step-line">L = <div class="frac"><span class="nomerator">22</span><span class="denominator">7</span></div> &times; 7 &times; 7</div>
+                <div class="step-line">L = 22 &times; 7</div>
+                <div class="step-line"><b>L = 154 cm²</b></div>
+            </div>
+        </div>
+
+        <h2>C. SUDUT PUSAT DAN SUDUT KELILING</h2>
+        <p>Sudut pusat adalah sudut yang titik sudutnya di pusat lingkaran, sedangkan sudut keliling titik sudutnya di lengkungan lingkaran.</p>
+        
+        <div class="math-display">
+            Sudut Pusat = 2 &times; Sudut Keliling
+        </div>
+
+        
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal 2: Hubungan Sudut</span>
+            Jika sudut keliling sebuah lingkaran adalah 35&deg;, berapakah besar sudut pusat yang menghadap busur yang sama?
+            <div class="solution-step">
+                <div class="step-line">Sudut Pusat = 2 &times; Sudut Keliling</div>
+                <div class="step-line">Sudut Pusat = 2 &times; 35&deg;</div>
+                <div class="step-line"><b>Sudut Pusat = 70&deg;</b></div>
+            </div>
+        </div>
+
+        <h2>D. PANJANG BUSUR DAN LUAS JURING</h2>
+        <p>Perhitungan ini menggunakan perbandingan sudut pusat terhadap sudut satu putaran penuh (360&deg;).</p>
+
+        <div class="math-display">
+            Panjang Busur = <div class="frac"><span class="nomerator">&alpha;</span><span class="denominator">360&deg;</span></div> &times; 2&pi;r <br>
+            Luas Juring = <div class="frac"><span class="nomerator">&alpha;</span><span class="denominator">360&deg;</span></div> &times; &pi;r²
+        </div>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal 3: Panjang Busur</span>
+            Tentukan panjang busur lingkaran dengan sudut pusat 90&deg; dan jari-jari 14 cm!
+            <div class="solution-step">
+                <div class="step-line">Panjang Busur = <div class="frac"><span class="nomerator">90&deg;</span><span class="denominator">360&deg;</span></div> &times; 2 &times; <div class="frac"><span class="nomerator">22</span><span class="denominator">7</span></div> &times; 14</div>
+                <div class="step-line">Panjang Busur = <div class="frac"><span class="nomerator">1</span><span class="denominator">4</span></div> &times; 88</div>
+                <div class="step-line"><b>Panjang Busur = 22 cm</b></div>
+            </div>
+        </div>
+
+        <div class="exercise-section" style="background: #fffafa; border: 1px dashed #e74c3c; padding: 30px; border-radius: 15px;">
+            <h3>LATIHAN MANDIRI LINGKARAN</h3>
+            <ol>
+                <li>Jika diameter lingkaran adalah 20 cm, berapakah jari-jarinya?</li>
+                <li>Tentukan keliling lingkaran jika jari-jarinya 10 cm (&pi; = 3,14).</li>
+                <li>Sebuah sudut pusat besarnya 120&deg;. Jika jari-jari 21 cm, tentukan luas juringnya!</li>
+            </ol>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Web Matematika - MAN 1 Makassar</p>
-        <p>Kampus Mengajar Berdampak Jurusan Matematika</p>
+        <p>Media Pembelajaran Digital - Bab Lingkaran</p>
     </footer>
 
 </body>

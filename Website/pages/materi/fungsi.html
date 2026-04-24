@@ -3,46 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi Komposisi dan Invers Fungsi - Kelas 11</title>
+    <title>Materi Lengkap Fungsi - MAN 1 Makassar</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f5f7fa; line-height: 1.6; color: #333; }
-        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f0f2f5; line-height: 1.6; color: #333; }
+        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
         .btn-back:hover { background: rgba(255,255,255,0.2); }
-        .content-container { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
-        h1 { color: #1e3c72; border-bottom: 3px solid #2ecc71; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #2c3e50; margin-top: 30px; border-left: 5px solid #ff8c00; padding-left: 15px; }
-        .info-box { background: #e8f5e9; border-left: 5px solid #2ecc71; padding: 15px; margin: 20px 0; border-radius: 0 10px 10px 0; }
-        footer { text-align: center; padding: 30px; color: #7f8c8d; font-size: 14px; }
-        p { margin-bottom: 15px; }
+        
+        .content-container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1e3c72; border-bottom: 4px solid #ff8c00; padding-bottom: 10px; margin-top: 0; text-align: center; }
+        h2 { color: #ffffff; background: #ff8c00; padding: 12px 20px; border-radius: 8px; margin-top: 50px; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { color: #2c3e50; border-left: 5px solid #ff8c00; padding-left: 15px; margin-top: 30px; }
+
+        /* Styling Matematika Profesional */
+        .math-display { 
+            background: #2c3e50; color: #fff; padding: 25px; text-align: center; 
+            border-radius: 15px; margin: 20px 0; font-family: "Times New Roman", Times, serif; 
+            font-size: 1.6em; box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+            display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px;
+        }
+
+        /* Desain Pecahan (Fraction) */
+        .frac { display: inline-block; vertical-align: middle; text-align: center; font-size: 0.9em; margin: 0 5px; }
+        .frac > span { display: block; padding: 0 5px; }
+        .frac span.nomerator { border-bottom: 2px solid currentColor; }
+        .frac span.denominator { border-top: none; }
+
+        .example-box { background: #fff; border: 1px solid #ff8c00; border-left: 8px solid #ff8c00; padding: 25px; margin: 25px 0; border-radius: 10px; }
+        .example-title { color: #d35400; font-weight: bold; font-size: 1.1em; margin-bottom: 15px; display: block; }
+        
+        .solution-step { 
+            display: block; margin-top: 15px; padding: 20px; background: #f9f9f9; 
+            border-radius: 8px; font-family: "Times New Roman", serif; font-size: 1.2em; color: #ff8c00; 
+        }
+        .step-line { display: flex; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+
+        .property-box { background: #eef2f7; border-radius: 10px; padding: 20px; margin: 20px 0; border-left: 5px solid #3498db; }
+        .highlight { background: #fff8e1; padding: 15px; border-radius: 8px; border: 1px solid #ffe082; margin: 15px 0; font-weight: bold; }
+
+        footer { text-align: center; padding: 40px; color: #7f8c8d; font-size: 14px; background: #fff; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
     <div class="navbar">
         <a href="../kelas11.html" class="btn-back">← Kembali</a>
-        <span>Materi Matematika Fase F</span>
+        <span>Materi Matematika Fase F - MAN 1 Makassar</span>
     </div>
 
     <div class="content-container">
-        <h1>Matriks</h1>
-        
-        <p>Matriks adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom sehingga membentuk suatu bangun persegi atau persegi panjang.</p>
+        <h1>BAB 3: FUNGSI, KOMPOSISI, DAN INVERS</h1>
 
-        <div class="info-box">
-            <strong>Catatan Penting:</strong> Ordo matriks ditentukan oleh banyaknya baris dikali banyaknya kolom (m x n). Contoh: Matriks 2x3 memiliki 2 baris dan 3 kolom.
+        <h2>A. KONSEP DASAR FUNGSI</h2>
+        <p>Fungsi adalah aturan yang menghubungkan setiap elemen dari himpunan asal ke tepat satu elemen himpunan kawan.</p>
+        
+        
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal 1: Substitusi Fungsi</span>
+            Diketahui f(x) = 4x - 5. Tentukan nilai f(3)!
+            <div class="solution-step">
+                <div class="step-line">f(3) = 4(3) - 5</div>
+                <div class="step-line">f(3) = 12 - 5</div>
+                <div class="step-line"><b>f(3) = 7</b></div>
+            </div>
         </div>
 
-        <h2>A. Operasi Matriks</h2>
-        <p>Penjumlahan dan pengurangan matriks hanya dapat dilakukan jika kedua matriks memiliki ordo yang sama. Sedangkan perkalian matriks memerlukan jumlah kolom matriks pertama sama dengan jumlah baris matriks kedua.</p>
+        <h2>B. FUNGSI KOMPOSISI</h2>
+        <p>Menggabungkan dua fungsi menjadi satu kesatuan.</p>
+        
+        <div class="math-display">
+            (f ∘ g)(x) = f(g(x))
+        </div>
 
-        <h2>B. Determinan & Invers</h2>
-        <p>Determinan merupakan nilai yang dapat dihitung dari unsur-unsur suatu matriks persegi. Invers matriks adalah kebalikan dari suatu matriks yang jika dikalikan dengan matriks asalnya akan menghasilkan matriks identitas.</p>
+        
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal 2: Mencari Komposisi</span>
+            f(x) = 2x + 1 dan g(x) = x - 3. Tentukan (f ∘ g)(x)!
+            <div class="solution-step">
+                <div class="step-line">(f ∘ g)(x) = f(g(x))</div>
+                <div class="step-line">(f ∘ g)(x) = f(x - 3)</div>
+                <div class="step-line">(f ∘ g)(x) = 2(x - 3) + 1</div>
+                <div class="step-line">(f ∘ g)(x) = 2x - 6 + 1</div>
+                <div class="step-line"><b>(f ∘ g)(x) = 2x - 5</b></div>
+            </div>
+        </div>
+
+        <h2>C. FUNGSI INVERS (f⁻¹)</h2>
+        <p>Mencari kebalikan dari suatu fungsi linear maupun pecahan.</p>
+
+        
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal 3: Invers Bentuk Pecahan</span>
+            Tentukan invers dari f(x) = 
+            <div class="frac" style="color: #d35400;">
+                <span class="nomerator">2x + 3</span>
+                <span class="denominator">x - 5</span>
+            </div>
+            <div class="solution-step">
+                <div class="step-line">Misal y = <div class="frac"><span class="nomerator">2x + 3</span><span class="denominator">x - 5</span></div></div>
+                <div class="step-line">y(x - 5) = 2x + 3</div>
+                <div class="step-line">xy - 5y = 2x + 3</div>
+                <div class="step-line">xy - 2x = 5y + 3</div>
+                <div class="step-line">x(y - 2) = 5y + 3</div>
+                <div class="step-line">
+                    x = <div class="frac"><span class="nomerator">5y + 3</span><span class="denominator">y - 2</span></div>
+                </div>
+                <div class="step-line">
+                    <b>f⁻¹(x) = <div class="frac"><span class="nomerator">5x + 3</span><span class="denominator">x - 2</span></div></b>
+                </div>
+            </div>
+        </div>
+
+        <h2>D. INVERS KOMPOSISI</h2>
+        <div class="math-display">
+            (f ∘ g)⁻¹(x) = (g⁻¹ ∘ f⁻¹)(x)
+        </div>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal 4: Invers dari Hasil Komposisi</span>
+            Jika (f ∘ g)(x) = 2x + 10, tentukan (f ∘ g)⁻¹(x)!
+            <div class="solution-step">
+                <div class="step-line">Misal y = 2x + 10</div>
+                <div class="step-line">y - 10 = 2x</div>
+                <div class="step-line">
+                    x = <div class="frac"><span class="nomerator">y - 10</span><span class="denominator">2</span></div>
+                </div>
+                <div class="step-line">
+                    <b>(f ∘ g)⁻¹(x) = <div class="frac"><span class="nomerator">x - 10</span><span class="denominator">2</span></div></b> atau <b>½x - 5</b>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-section">
+            <h3 style="margin-top: 0;">LATIHAN MANDIRI</h3>
+            <ol>
+                <li>Jika f(x) = 3x + 7, tentukan f⁻¹(x).</li>
+                <li>Diketahui f(x) = x - 2 dan g(x) = 4x. Tentukan (f ∘ g)⁻¹(x).</li>
+            </ol>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Web Matematika - MAN 1 Makassar</p>
-        <p>Kampus Mengajar Berdampak Jurusan Matematika</p>
     </footer>
 
 </body>
