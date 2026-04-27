@@ -1,49 +1,249 @@
 <!DOCTYPE html>
 <html lang="id">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi Peluang - Kelas 10</title>
+    <title>Materi Peluang - MAN 1 Makassar</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f5f7fa; line-height: 1.6; color: #333; }
-        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
-        .btn-back:hover { background: rgba(255,255,255,0.2); }
-        .content-container { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
-        h1 { color: #1e3c72; border-bottom: 3px solid #2ecc71; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #2c3e50; margin-top: 30px; border-left: 5px solid #ff8c00; padding-left: 15px; }
-        .info-box { background: #e8f5e9; border-left: 5px solid #2ecc71; padding: 15px; margin: 20px 0; border-radius: 0 10px 10px 0; }
-        footer { text-align: center; padding: 30px; color: #7f8c8d; font-size: 14px; }
-        p { margin-bottom: 15px; }
+        /* CSS KONSISTEN: MERAH #e74c3c & BIRU #1e3c72 */
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f2f5; line-height: 1.8; color: #333; }
+        .navbar { background: #1e3c72; padding: 15px 25px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 10px; border-radius: 5px; }
+        
+        .content-container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1e3c72; border-bottom: 4px solid #34495e; padding-bottom: 10px; text-align: center; margin-bottom: 40px; }
+        h2 { color: #ffffff; background: #34495e; padding: 12px 20px; border-radius: 8px; margin-top: 50px; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { color: #1e3c72; border-left: 6px solid #34495e; padding-left: 15px; margin-top: 35px; font-weight: bold; }
+
+        /* PENULISAN MATEMATIKA PROFESIONAL */
+        .math { font-family: "Times New Roman", Times, serif; font-style: italic; font-weight: bold; font-size: 1.1em; color: #2c3e50; }
+        
+        /* Container Rumus Utama */
+        .math-block { 
+    background: #2c3e50; 
+    color: #ffffff; 
+    padding: 25px; 
+    text-align: center; 
+    border-radius: 15px; 
+    margin: 20px 0; 
+    font-size: 1.7em;
+    overflow-x: auto;
+}
+
+
+        /* Rumus Pecahan */
+        .fraction { display: inline-flex; flex-direction: column; vertical-align: middle; align-items: center; font-size: 0.9em; }
+        .num { border-bottom: 2px solid white; padding: 0 10px; } 
+        .den { padding: 0 10px; } 
+
+        /* Pecahan untuk teks biasa (TEGAK LURUS) */
+        .fraction-dark { 
+            display: inline-flex; 
+            flex-direction: column; 
+            vertical-align: middle; 
+            align-items: center; 
+            font-size: 0.85em; 
+            margin: 0 5px; 
+            font-family: "Times New Roman", serif; 
+            font-weight: bold;
+            line-height: 1.1;
+        }
+        .fraction-dark .num { border-bottom: 1.5px solid #333; padding: 0 5px; }
+        .fraction-dark .den { padding: 0 5px; }
+
+        /* Keterangan Rumus */
+        .formula-desc { background: #f8f9fa; padding: 15px; border-radius: 8px; font-size: 0.95em; border-left: 3px solid #1e3c72; margin-bottom: 20px; }
+
+        /* Tabel Ruang Sampel */
+        .sample-table { width: 100%; border-collapse: collapse; margin: 25px 0; text-align: center; font-family: "Times New Roman", serif; }
+        .sample-table th { background: #1e3c72; color: white; padding: 12px; border: 1px solid #ddd; }
+        .sample-table td { padding: 10px; border: 1px solid #ddd; font-size: 0.95em; }
+        .sample-table tr:nth-child(even) { background-color: #f9f9f9; }
+
+        /* Kotak Contoh & Latihan */
+        .example-box { border: 1px solid #ddd; border-left: 8px solid #34495e; padding: 25px; margin: 30px 0; border-radius: 10px; background: #fff; }
+        .example-title { color: #34495e; font-weight: bold; margin-bottom: 10px; display: block; text-transform: uppercase; font-size: 0.9em; }
+        .solution { background: #f1f4f9; padding: 15px; border-radius: 8px; margin-top: 10px; font-family: "Times New Roman", serif; }
+        .highlight { color: #34495e; font-weight: bold; }
+
+        .exercise-section { background: #ffffff; color: rgb(48, 46, 46); padding: 35px; border-radius: 15px; margin-top: 50px; }
+        .exercise-section h3 { color: #1e3c72; border-left: 6px solid #34495e; }
+
+        footer { text-align: center; padding: 40px; color: #7f8c8d; font-size: 14px; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
-    <div class="navbar">
-        <a href="../kelas10.html" class="btn-back">← Kembali</a>
-        <span>Materi Matematika Fase F</span>
+<div class="navbar">
+    <a href="../kelas10.html" class="btn-back">← Kembali</a>
+    <span>E-Learning Matematika - MAN 1 Makassar</span>
+</div>
+
+<div class="content-container">
+    <h1>MODUL AJAR: PELUANG KEJADIAN</h1>
+
+    <h2>A. RUANG SAMPEL DAN KEJADIAN</h2>
+    
+    <h3>1. Ruang Sampel (<span class="math">S</span>)</h3>
+    <p>Ruang sampel adalah himpunan dari semua hasil yang mungkin muncul pada suatu percobaan. Banyaknya anggota ruang sampel dinotasikan dengan <span class="math">n(S)</span>.</p>
+    
+    <div class="example-box">
+        <span class="example-title">Visualisasi Tabel: Ruang Sampel 2 Dadu</span>
+        <table class="sample-table">
+            <tr>
+                <th style="background:#e74c3c">Dadu 1 \ 2</th>
+                <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th>
+            </tr>
+            <tr><th>1</th><td>(1,1)</td><td>(1,2)</td><td>(1,3)</td><td>(1,4)</td><td>(1,5)</td><td>(1,6)</td></tr>
+            <tr><th>2</th><td>(2,1)</td><td>(2,2)</td><td>(2,3)</td><td>(2,4)</td><td>(2,5)</td><td>(2,6)</td></tr>
+            <tr><th>3</th><td>(3,1)</td><td>(3,2)</td><td>(3,3)</td><td>(3,4)</td><td>(3,5)</td><td>(3,6)</td></tr>
+            <tr><th>4</th><td>(4,1)</td><td>(4,2)</td><td>(4,3)</td><td>(4,4)</td><td>(4,5)</td><td>(4,6)</td></tr>
+            <tr><th>5</th><td>(5,1)</td><td>(5,2)</td><td>(5,3)</td><td>(5,4)</td><td>(5,5)</td><td>(5,6)</td></tr>
+            <tr><th>6</th><td>(6,1)</td><td>(6,2)</td><td>(6,3)</td><td>(6,4)</td><td>(6,5)</td><td>(6,6)</td></tr>
+        </table>
+        <p>Dari tabel di atas, terlihat bahwa <span class="math">n(S) = 36</span>.</p>
     </div>
 
-    <div class="content-container">
-        <h1>Matriks</h1>
-        
-        <p>Matriks adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom sehingga membentuk suatu bangun persegi atau persegi panjang.</p>
+    <h3>2. Kejadian (<span class="math">A</span>)</h3>
+    <p>Kejadian adalah himpunan bagian dari ruang sampel yang diharapkan muncul. Banyaknya anggota kejadian dinotasikan dengan <span class="math">n(A)</span>.</p>
 
-        <div class="info-box">
-            <strong>Catatan Penting:</strong> Ordo matriks ditentukan oleh banyaknya baris dikali banyaknya kolom (m x n). Contoh: Matriks 2x3 memiliki 2 baris dan 3 kolom.
+    <h2>B. PELUANG KEJADIAN DAN FREKUENSI HARAPAN</h2>
+
+    <h3>1. Peluang Kejadian</h3>
+    <div class="math-block">
+    \[ P(A) = \frac{n(A)}{n(S)} \]
+</div>
+    <div class="formula-desc">
+        <b>Keterangan:</b><br>
+        • <span class="math">P(A)</span> : Peluang munculnya kejadian A.<br>
+        • <span class="math">n(A)</span> : Banyaknya anggota dalam kejadian A.<br>
+        • <span class="math">n(S)</span> : Banyaknya seluruh titik sampel pada ruang sampel S.
+    </div>
+
+    <h3>Macam-Macam Kejadian:</h3>
+
+    <div class="example-box">
+        <span class="example-title">a. Kejadian Saling Lepas</span>
+        <p>Kejadian A dan B tidak memiliki irisan (tidak mungkin terjadi bersamaan).</p>
+        <div class="math-block">
+    \[ P(A \cup B) = P(A) + P(B) \]
+</div>
+        <p><b>Contoh Soal:</b> Sebuah dadu dilempar. Berapa peluang muncul mata dadu 1 atau 6?</p>
+        <div class="solution">
+            <b>Diketahui:</b> <span class="math">n(S) = 6</span>. <span class="math">A = {1}</span>, <span class="math">B = {6}</span>.<br>
+            <b>Dijawab:</b> <span class="math">P = </span> 
+            <div class="fraction-dark"><span class="num">1</span><span class="den">6</span></div> + 
+            <div class="fraction-dark"><span class="num">1</span><span class="den">6</span></div> = 
+            <div class="fraction-dark"><span class="num">2</span><span class="den">6</span></div> = 
+            <span class="highlight">
+                <div class="fraction-dark"><span class="num">1</span><span class="den">3</span></div>
+            </span>.
         </div>
-
-        <h2>A. Operasi Matriks</h2>
-        <p>Penjumlahan dan pengurangan matriks hanya dapat dilakukan jika kedua matriks memiliki ordo yang sama. Sedangkan perkalian matriks memerlukan jumlah kolom matriks pertama sama dengan jumlah baris matriks kedua.</p>
-
-        <h2>B. Determinan & Invers</h2>
-        <p>Determinan merupakan nilai yang dapat dihitung dari unsur-unsur suatu matriks persegi. Invers matriks adalah kebalikan dari suatu matriks yang jika dikalikan dengan matriks asalnya akan menghasilkan matriks identitas.</p>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Web Matematika - MAN 1 Makassar</p>
-        <p>Kampus Mengajar Berdampak Jurusan Matematika</p>
-    </footer>
+    <div class="example-box">
+        <span class="example-title">b. Kejadian Tidak Saling Lepas</span>
+        <p>Kejadian A dan B memiliki irisan anggota.</p>
+        <div class="math-block">
+    \[ P(A \cup B) = P(A) + P(B) - P(A \cap B) \]
+</div>
+        <p><b>Contoh Soal:</b> Diambil 1 kartu dari nomor 1-10. Peluang terambil angka genap atau angka prima?</p>
+        <div class="solution">
+            <b>Diketahui:</b> <span class="math">n(S) = 10</span>. <br>
+            • Genap (A) = {2,4,6,8,10} &rarr; <span class="math">n(A)=5</span>.<br>
+            • Prima (B) = {2,3,5,7} &rarr; <span class="math">n(B)=4</span>.<br>
+            • Irisan (A&cap;B) = {2} &rarr; <span class="math">n(A&cap;B)=1</span>.<br>
+            <b>Dijawab:</b> <span class="math">P = </span>
+            <div class="fraction-dark"><span class="num">5</span><span class="den">10</span></div> + 
+            <div class="fraction-dark"><span class="num">4</span><span class="den">10</span></div> - 
+            <div class="fraction-dark"><span class="num">1</span><span class="den">10</span></div> = 
+            <div class="fraction-dark"><span class="num">8</span><span class="den">10</span></div> = 
+            <span class="highlight">
+                <div class="fraction-dark"><span class="num">4</span><span class="den">5</span></div>
+            </span>.
+        </div>
+    </div>
+
+    <div class="example-box">
+        <span class="example-title">c. Kejadian Saling Bebas</span>
+        <p>Munculnya kejadian A tidak mempengaruhi peluang kejadian B. (Kata hubung <b>"dan"</b>)</p>
+        <div class="math-block">
+    \[ P(A \cap B) = P(A) \times P(B) \]
+</div>
+        <p><b>Contoh Soal:</b> Dua koin dilempar. Peluang muncul Angka pada koin 1 dan Angka pada koin 2?</p>
+        <div class="solution">
+            <b>Diketahui:</b> <span class="math">P(A) = </span> <div class="fraction-dark"><span class="num">1</span><span class="den">2</span></div>, 
+            <span class="math">P(B) = </span> <div class="fraction-dark"><span class="num">1</span><span class="den">2</span></div>.<br>
+            <b>Dijawab:</b> <span class="math">P = </span>
+            <div class="fraction-dark"><span class="num">1</span><span class="den">2</span></div> &times; 
+            <div class="fraction-dark"><span class="num">1</span><span class="den">2</span></div> = 
+            <span class="highlight">
+                <div class="fraction-dark"><span class="num">1</span><span class="den">4</span></div>
+            </span>.
+        </div>
+    </div>
+
+    <div class="example-box">
+        <span class="example-title">d. Kejadian Bersyarat</span>
+        <p>Kejadian B terjadi setelah kejadian A tanpa pengembalian.</p>
+        <div class="math-block">
+    \[ P(A \cap B) = P(A) \times P(B \mid A) \]
+</div>
+        <p><b>Contoh Soal:</b> Kotak berisi 5 bola merah, 3 bola biru. Diambil 2 satu per satu tanpa pengembalian. Peluang terambil keduanya merah?</p>
+        <div class="solution">
+            <b>Pengambilan 1:</b> <span class="math">P(A) = </span> <div class="fraction-dark"><span class="num">5</span><span class="den">8</span></div>.<br>
+            <b>Pengambilan 2:</b> Merah sisa 4, total sisa 7 &rarr; <span class="math">P(B|A) = </span> <div class="fraction-dark"><span class="num">4</span><span class="den">7</span></div>.<br>
+            <b>Dijawab:</b> <span class="math">P = </span>
+            <div class="fraction-dark"><span class="num">5</span><span class="den">8</span></div> &times; 
+            <div class="fraction-dark"><span class="num">4</span><span class="den">7</span></div> = 
+            <div class="fraction-dark"><span class="num">20</span><span class="den">56</span></div> = 
+            <span class="highlight">
+                <div class="fraction-dark"><span class="num">5</span><span class="den">14</span></div>
+            </span>.
+        </div>
+    </div>
+
+    <h3>2. Frekuensi Harapan (<span class="math">F<sub>h</sub></span>)</h3>
+    <div class="math-block">
+    \[ F_h(A) = P(A) \times N \]
+</div>
+    <div class="formula-desc">
+        <b>Keterangan:</b><br>
+        • <span class="math">F<sub>h</sub>(A)</span> : Frekuensi harapan kejadian A.<br>
+        • <span class="math">P(A)</span> : Peluang kejadian A.<br>
+        • <span class="math">N</span> : Banyaknya percobaan yang dilakukan.
+    </div>
+
+    <div class="example-box">
+        <span class="example-title">Contoh Soal Frekuensi Harapan</span>
+        <p>Dadu dilempar 120 kali. Berapa kali diharapkan muncul mata dadu berjumlah 6?</p>
+        <div class="solution">
+            <b>Diketahui:</b> <span class="math">N = 120</span>. <span class="math">n(S) = 6</span>. Angka 6 ada satu &rarr; <span class="math">n(A) = 1</span>.<br>
+            <b>Dijawab:</b> <br>
+            <span class="math">P(A) = </span> 
+            <div class="fraction-dark"><span class="num">1</span><span class="den">6</span></div><br>
+            <span class="math">F<sub>h</sub> = </span> 
+            <div class="fraction-dark"><span class="num">1</span><span class="den">6</span></div> 
+            &times; 120 = <span class="highlight">20 kali</span>.
+        </div>
+    </div>
+
+    <div class="exercise-section">
+        <h3>LATIHAN MANDIRI</h3>
+        <p>Kerjakan soal-soal di bawah ini dengan teliti:</p>
+        <ol>
+            <li>Dua buah dadu dilemparkan bersama-sama satu kali. Tentukan peluang munculnya mata dadu berjumlah 7! (Gunakan tabel di atas)</li>
+            <li>Dalam sebuah tas terdapat 4 kelereng merah dan 6 kelereng putih. Jika diambil 2 kelereng satu per satu dengan pengembalian, tentukan peluang terambil kelereng merah pada pengambilan pertama dan kelereng putih pada pengambilan kedua!</li>
+            <li>Peluang seorang penembak mengenai sasaran adalah 0,75. Jika ia menembak sebanyak 100 kali, berapa kali tembakannya diharapkan mengenai sasaran?</li>
+        </ol>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 E-Learning Matematika MAN 1 Makassar | Dikembangkan oleh Nabila - PPL UNM</p>
+</footer>
 
 </body>
 </html>
