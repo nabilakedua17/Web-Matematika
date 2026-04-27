@@ -3,46 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi fungsi kuadrat - Kelas 10</title>
+    <title>Materi Fungsi Kuadrat - Fase F</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f5f7fa; line-height: 1.6; color: #333; }
-        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        /* CSS sesuai ukuran dan gaya yang Anda berikan */
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f0f2f5; line-height: 1.6; color: #333; }
+        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
         .btn-back:hover { background: rgba(255,255,255,0.2); }
-        .content-container { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
-        h1 { color: #1e3c72; border-bottom: 3px solid #2ecc71; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #2c3e50; margin-top: 30px; border-left: 5px solid #ff8c00; padding-left: 15px; }
-        .info-box { background: #e8f5e9; border-left: 5px solid #2ecc71; padding: 15px; margin: 20px 0; border-radius: 0 10px 10px 0; }
-        footer { text-align: center; padding: 30px; color: #7f8c8d; font-size: 14px; }
-        p { margin-bottom: 15px; }
+        
+        .content-container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1e3c72; border-bottom: 3px solid #d35400; padding-bottom: 10px; margin-top: 0; text-align: center; }
+        h2 { color: #ffffff; background: #d35400; padding: 12px 20px; border-radius: 8px; margin-top: 50px; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { color: #2c3e50; border-left: 5px solid #d35400; padding-left: 15px; margin-top: 30px; }
+
+        /* Penulisan Matematika */
+        .math-font { font-family: "Times New Roman", Times, serif; font-style: italic; }
+        
+        .math-display { 
+            background: #2c3e50; 
+            color: #fff; 
+            padding: 25px; 
+            text-align: center; 
+            border-radius: 15px; 
+            margin: 20px 0; 
+            font-family: "Times New Roman", Times, serif; 
+            font-size: 1.6em;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        .fraction { display: inline-block; vertical-align: middle; margin: 0 0.3em; text-align: center; font-style: normal; }
+        .fraction > span { display: block; padding: 0.1em; }
+        .fraction span.fdn { border-top: 2px solid white; }
+        .fraction span.fdn-dark { border-top: 2px solid #333; }
+
+        /* Box Contoh Soal */
+        .example-box { background: #fff; border: 1px solid #d35400; border-left: 8px solid #d35400; padding: 25px; margin: 30px 0; border-radius: 10px; }
+        .example-title { color: #d35400; font-weight: bold; font-size: 1.1em; margin-bottom: 10px; display: block; }
+        
+        .solution-step { 
+            display: block; 
+            margin-top: 15px; 
+            padding: 15px; 
+            background: #f9f9f9; 
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            font-size: 1.2em;
+            color: #d35400;
+        }
+
+        .step-row { display: flex; align-items: center; justify-content: center; margin-bottom: 5px; flex-wrap: wrap; }
+
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; border-radius: 8px; overflow: hidden; }
+        th { background-color: #1e3c72; color: white; padding: 15px; }
+        td { padding: 15px; border: 1px solid #ddd; text-align: center; }
+
+        .exercise-section { background: #f8f9fa; padding: 30px; border-radius: 15px; margin-top: 40px; border: 1px dashed #1e3c72; }
+        
+        footer { text-align: center; padding: 40px; color: #7f8c8d; font-size: 14px; background: #fff; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
     <div class="navbar">
-        <a href="../kelas10.html" class="btn-back">← Kembali</a>
-        <span>Materi Matematika Fase F</span>
+        <a href="../index.html" class="btn-back">← Kembali</a>
+        <span>Modul Digital Matematika - MAN 1 Makassar</span>
     </div>
 
     <div class="content-container">
-        <h1>Matriks</h1>
-        
-        <p>Matriks adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom sehingga membentuk suatu bangun persegi atau persegi panjang.</p>
+        <h1>BAB VI: FUNGSI KUADRAT</h1>
 
-        <div class="info-box">
-            <strong>Catatan Penting:</strong> Ordo matriks ditentukan oleh banyaknya baris dikali banyaknya kolom (m x n). Contoh: Matriks 2x3 memiliki 2 baris dan 3 kolom.
+        <p>Fungsi kuadrat adalah fungsi yang memiliki variabel dengan pangkat tertinggi dua. Berbeda dengan persamaan kuadrat yang hanya mencari nilai <i>x</i>, fungsi kuadrat menggambarkan hubungan antara variabel bebas <i>x</i> dan variabel terikat <i>y</i> yang jika digambarkan membentuk grafik parabola.</p>
+
+        <h2>A. BENTUK UMUM FUNGSI KUADRAT</h2>
+        <p>Bentuk umum fungsi kuadrat adalah:</p>
+        <div class="math-display">
+            f(x) = ax² + bx + c
+        </div>
+        <div class="concept-card">
+            <b>Karakteristik Utama:</b>
+            <ul>
+                <li><b>x</b> : Variabel bebas.</li>
+                <li><b>f(x) atau y</b> : Nilai fungsi (variabel terikat).</li>
+                <li><b>a, b</b> : Koefisien (dengan syarat <b>a ≠ 0</b>).</li>
+                <li><b>c</b> : Konstanta atau suku tetap.</li>
+            </ul>
         </div>
 
-        <h2>A. Operasi Matriks</h2>
-        <p>Penjumlahan dan pengurangan matriks hanya dapat dilakukan jika kedua matriks memiliki ordo yang sama. Sedangkan perkalian matriks memerlukan jumlah kolom matriks pertama sama dengan jumlah baris matriks kedua.</p>
+        <h2>B. PENYAJIAN FUNGSI KUADRAT</h2>
+        <p>Grafik fungsi kuadrat disebut <b>Parabola</b>. Bentuk dan posisi grafik ini sangat bergantung pada nilai <i>a, b,</i> dan <i>c</i>.</p>
+        
+        <h3>1. Pengaruh Nilai a (Arah Kurva)</h3>
+        <ul>
+            <li>Jika <b>a > 0</b>: Parabola terbuka ke atas (Cekung), menyerupai huruf U. Memiliki titik balik <b>minimum</b>.</li>
+            <li>Jika <b>a < 0</b>: Parabola terbuka ke bawah (Cembung), menyerupai huruf n. Memiliki titik balik <b>maksimum</b>.</li>
+        </ul>
 
-        <h2>B. Determinan & Invers</h2>
-        <p>Determinan merupakan nilai yang dapat dihitung dari unsur-unsur suatu matriks persegi. Invers matriks adalah kebalikan dari suatu matriks yang jika dikalikan dengan matriks asalnya akan menghasilkan matriks identitas.</p>
+        <h3>2. Pengaruh Nilai b (Posisi Puncak)</h3>
+        <p>Nilai <i>b</i> menentukan posisi puncak terhadap sumbu Y. Jika <i>a</i> dan <i>b</i> bertanda sama, puncak ada di kiri sumbu Y. Jika berbeda tanda, puncak ada di kanan sumbu Y.</p>
+
+        <h3>3. Pengaruh Nilai c (Perpotongan Sumbu Y)</h3>
+        <p>Grafik selalu memotong sumbu Y di titik <b>(0, c)</b>. Nilai <i>c</i> menentukan seberapa tinggi atau rendah grafik memotong sumbu vertikal.</p>
+
+        <h2>C. SUMBU SIMETRI DAN NILAI OPTIMUM</h2>
+        <p>Sumbu simetri adalah garis vertikal yang membelah parabola tepat di tengah. Nilai optimum adalah nilai <i>y</i> pada titik puncak tersebut.</p>
+
+        <div class="example-box">
+            <span class="example-title">Rumus Sumbu Simetri (xₚ)</span>
+            <div class="math-display">
+                x = <div class="fraction"><span>-b</span><span class="fdn">2a</span></div>
+            </div>
+        </div>
+
+        <div class="example-box">
+            <span class="example-title">Rumus Nilai Optimum (yₚ)</span>
+            <div class="math-display">
+                y = <div class="fraction"><span>D</span><span class="fdn">-4a</span></div> &nbsp;dimana&nbsp; D = b² - 4ac
+            </div>
+        </div>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal: Analisis Titik Puncak</span>
+            Tentukan titik puncak dari fungsi f(x) = x² - 4x + 3
+            <div class="solution-step">
+                <div class="step-row">Diketahui: a = 1, b = -4, c = 3</div>
+                <div class="step-row"><b>1. Sumbu Simetri:</b> x = <div class="fraction"><span>-(-4)</span><span class="fdn-dark">2(1)</span></div> = <b>2</b></div>
+                <div class="step-row"><b>2. Nilai Optimum:</b> f(2) = (2)² - 4(2) + 3 = 4 - 8 + 3 = <b>-1</b></div>
+                <div class="step-row"><b>Jadi, Titik Puncak (Titik Balik Minimum) adalah (2, -1)</b></div>
+            </div>
+        </div>
+
+        <h2>D. MENYUSUN RUMUS FUNGSI KUADRAT</h2>
+        <p>Kita dapat menentukan persamaan fungsi kuadrat kembali berdasarkan informasi yang tersedia:</p>
+
+        <h3>1. Jika diketahui titik potong sumbu X: (x₁, 0) dan (x₂, 0)</h3>
+        <div class="math-display">f(x) = a(x - x₁)(x - x₂)</div>
+
+        <h3>2. Jika diketahui titik puncak: (xₚ, yₚ)</h3>
+        <div class="math-display">f(x) = a(x - xₚ)² + yₚ</div>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal: Menyusun Persamaan</span>
+            Tentukan fungsi kuadrat yang memiliki titik puncak (3, -1) dan melalui titik (0, 8)!
+            <div class="solution-step">
+                <div class="step-row">Gunakan rumus puncak: y = a(x - xₚ)² + yₚ</div>
+                <div class="step-row">Substitusi (3, -1) dan (0, 8): 8 = a(0 - 3)² + (-1)</div>
+                <div class="step-row">8 = 9a - 1 &rArr; 9 = 9a &rArr; <b>a = 1</b></div>
+                <div class="step-row">Substitusi a ke persamaan: f(x) = 1(x - 3)² - 1</div>
+                <div class="step-row">f(x) = (x² - 6x + 9) - 1 &rArr; <b>f(x) = x² - 6x + 8</b></div>
+            </div>
+        </div>
+
+        <div class="exercise-section">
+            <h2>LATIHAN SOAL MANDIRI</h2>
+            <ol>
+                <li>Manakah yang terbuka ke bawah? <b>f(x) = 3x² - x + 2</b> atau <b>g(x) = -x² + 5x</b>?</li>
+                <li>Tentukan titik potong grafik <b>f(x) = x² + 2x - 8</b> terhadap sumbu X!</li>
+                <li>Tentukan persamaan sumbu simetri dari fungsi <b>f(x) = 2x² - 8x + 6</b>!</li>
+                <li>Sebuah fungsi memiliki puncak di (1, 4) dan melalui (0, 3). Tentukan rumusnya!</li>
+                <li>Tentukan nilai minimum dari fungsi <b>f(x) = x² - 6x + 5</b>!</li>
+            </ol>
+        </div>
     </div>
 
     <footer>
-        <p>2026 Web Matematika - MAN 1 Makassar</p>
-        <p>Kampus Mengajar Berdampak-Jurusan Matematika-Universitas Negeri Makassar</p>
+        <p>&copy; 2026 Media Pembelajaran Digital. Nabila - MAN 1 Makassar</p>
+        <p>Program Kerja PPL - Universitas Negeri Makassar</p>
     </footer>
 
 </body>

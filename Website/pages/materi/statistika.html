@@ -3,46 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi Barisan dan Deret - Kelas 10</title>
+    <title>Materi Statistika - Kelas 11</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f5f7fa; line-height: 1.6; color: #333; }
-        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        /* CSS Gabungan dari gaya yang Anda inginkan sebelumnya */
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f0f2f5; line-height: 1.6; color: #333; }
+        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
         .btn-back:hover { background: rgba(255,255,255,0.2); }
-        .content-container { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
-        h1 { color: #1e3c72; border-bottom: 3px solid #2ecc71; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #2c3e50; margin-top: 30px; border-left: 5px solid #ff8c00; padding-left: 15px; }
-        .info-box { background: #e8f5e9; border-left: 5px solid #2ecc71; padding: 15px; margin: 20px 0; border-radius: 0 10px 10px 0; }
-        footer { text-align: center; padding: 30px; color: #7f8c8d; font-size: 14px; }
-        p { margin-bottom: 15px; }
+        
+        .content-container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1e3c72; border-bottom: 3px solid #2ecc71; padding-bottom: 10px; margin-top: 0; text-align: center; }
+        h2 { color: #ffffff; background: #2ecc71; padding: 12px 20px; border-radius: 8px; margin-top: 50px; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { color: #2c3e50; border-left: 5px solid #2ecc71; padding-left: 15px; margin-top: 30px; }
+
+        /* Penulisan Matematika */
+        .math-font { font-family: "Times New Roman", Times, serif; font-style: italic; }
+        
+        .math-display { 
+            background: #2c3e50; 
+            color: #fff; 
+            padding: 25px; 
+            text-align: center; 
+            border-radius: 15px; 
+            margin: 20px 0; 
+            font-family: "Times New Roman", Times, serif; 
+            font-size: 1.6em;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        .fraction { display: inline-block; vertical-align: middle; margin: 0 0.3em; text-align: center; font-style: normal; }
+        .fraction > span { display: block; padding: 0.1em; }
+        .fraction span.fdn { border-top: 2px solid white; }
+        .fraction span.fdn-dark { border-top: 2px solid #333; }
+
+        /* Box Contoh Soal */
+        .example-box { background: #fff; border: 1px solid #2ecc71; border-left: 8px solid #2ecc71; padding: 25px; margin: 30px 0; border-radius: 10px; }
+        .example-title { color: #2ecc71; font-weight: bold; font-size: 1.1em; margin-bottom: 10px; display: block; }
+        
+        .solution-step { 
+            display: block; 
+            margin-top: 15px; 
+            padding: 15px; 
+            background: #f9f9f9; 
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            font-size: 1.2em;
+            color: #2ecc71;
+        }
+
+        .step-row { display: flex; align-items: center; justify-content: center; margin-bottom: 5px; flex-wrap: wrap; }
+
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; border-radius: 8px; overflow: hidden; }
+        th { background-color: #1e3c72; color: white; padding: 15px; }
+        td { padding: 15px; border: 1px solid #ddd; text-align: center; }
+
+        .exercise-section { background: #f8f9fa; padding: 30px; border-radius: 15px; margin-top: 40px; border: 1px dashed #1e3c72; }
+        
+        footer { text-align: center; padding: 40px; color: #7f8c8d; font-size: 14px; background: #fff; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
     <div class="navbar">
         <a href="../kelas10.html" class="btn-back">← Kembali</a>
-        <span>Materi Matematika Fase F</span>
+        <span>Media Pembelajaran Digital Matematika - MAN 1 Makassar</span>
     </div>
 
     <div class="content-container">
-        <h1>Matriks</h1>
-        
-        <p>Matriks adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom sehingga membentuk suatu bangun persegi atau persegi panjang.</p>
+        <h1>BAB VIII: PENYAJIAN DAN PENGOLAHAN DATA STATISTIKA</h1>
 
-        <div class="info-box">
-            <strong>Catatan Penting:</strong> Ordo matriks ditentukan oleh banyaknya baris dikali banyaknya kolom (m x n). Contoh: Matriks 2x3 memiliki 2 baris dan 3 kolom.
+        <p>Statistika merupakan salah satu cabang matematika yang sangat dekat dengan kehidupan sehari-hari. Hampir semua kegiatan yang berhubungan dengan data menggunakan statistika, seperti menghitung rata-rata nilai siswa, menentukan jumlah pengunjung perpustakaan, hingga menentukan hasil survei pemilu. Melalui statistika, seseorang dapat mengumpulkan, mengolah, menyajikan, dan menganalisis data untuk menarik kesimpulan yang tepat.</p>
+
+        <h2>A. MENGENAL STATISTIKA</h2>
+        
+        <h3>1. Pengertian Statistika & Statistik</h3>
+        <p><b>Statistika:</b> Ilmu yang mempelajari cara mengumpulkan data, mengolah, menyajikan, menganalisis, menginterpretasikan data, dan menarik kesimpulan.</p>
+        <p><b>Statistik:</b> Kumpulan data atau informasi berbentuk angka atau non-angka yang disusun untuk menggambarkan suatu keadaan.</p>
+
+        <h3>2. Populasi dan Sampel</h3>
+        <p><b>Populasi</b> adalah seluruh objek yang menjadi target penelitian, sedangkan <b>Sampel</b> adalah bagian dari populasi yang diambil untuk mewakili seluruh kelompok.</p>
+        
+        <div class="example-box">
+            <span class="example-title">Contoh Kasus</span>
+            Peneliti ingin mengetahui rata-rata tinggi badan siswa MAN 1 Makassar.
+            <ul>
+                <li><b>Populasi:</b> Seluruh siswa MAN 1 Makassar.</li>
+                <li><b>Sampel:</b> Siswa kelas XI MAN 1 Makassar yang dipilih secara acak.</li>
+            </ul>
         </div>
 
-        <h2>A. Operasi Matriks</h2>
-        <p>Penjumlahan dan pengurangan matriks hanya dapat dilakukan jika kedua matriks memiliki ordo yang sama. Sedangkan perkalian matriks memerlukan jumlah kolom matriks pertama sama dengan jumlah baris matriks kedua.</p>
+        <h3>3. Jenis Data</h3>
+        <ul>
+            <li><b>Data Kualitatif:</b> Data berbentuk kategori (Contoh: Warna favorit, jenis pekerjaan).</li>
+            <li><b>Data Kuantitatif:</b> Data berbentuk angka (Contoh: Berat badan, nilai ujian).
+                <ul>
+                    <li><i>Data Diskrit:</i> Hasil menghitung (Contoh: Jumlah anak).</li>
+                    <li><i>Data Kontinu:</i> Hasil mengukur (Contoh: Tinggi badan).</li>
+                </ul>
+            </li>
+        </ul>
 
-        <h2>B. Determinan & Invers</h2>
-        <p>Determinan merupakan nilai yang dapat dihitung dari unsur-unsur suatu matriks persegi. Invers matriks adalah kebalikan dari suatu matriks yang jika dikalikan dengan matriks asalnya akan menghasilkan matriks identitas.</p>
+        <h2>B. PENYAJIAN DATA STATISTIKA</h2>
+        <p>Data mentah perlu disajikan agar mudah dibaca melalui:</p>
+        <ul>
+            <li><b>Tabel Distribusi Frekuensi:</b> Menyusun data ke dalam interval.</li>
+            <li><b>Histogram & Poligon Frekuensi:</b> Grafik batang dan garis untuk data berkelompok.</li>
+            <li><b>Dot Plot:</b> Menyajikan data tunggal menggunakan titik di atas garis bilangan.</li>
+            <li><b>Diagram Pencar (Scatter Plot):</b> Digunakan untuk melihat hubungan antara dua variabel.</li>
+        </ul>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal: Frekuensi Relatif (FR)</span>
+            Dalam sebuah kelas yang berjumlah 40 siswa (n), sebanyak 12 siswa (f) memperoleh nilai 71–80. Berapakah frekuensi relatifnya?
+            <div class="solution-step">
+                <div class="step-row">Rumus: FR = <div class="fraction"><span>f</span><span class="fdn-dark">n</span></div> × 100%</div>
+                <div class="step-row">Penyelesaian: FR = <div class="fraction"><span>12</span><span class="fdn-dark">40</span></div> × 100%</div>
+                <div class="step-row"><b>Jadi, Frekuensi Relatif = 30%</b></div>
+            </div>
+        </div>
+
+        <h2>C. UKURAN PEMUSATAN DATA</h2>
+        
+        <h3>1. Mean (Rata-Rata)</h3>
+        <div class="math-display">
+            x̄ = <div class="fraction"><span>Σx</span><span class="fdn">n</span></div>
+        </div>
+        <div class="example-box">
+            <span class="example-title">Contoh Soal: Menghitung Mean</span>
+            Nilai ulangan lima siswa: 60, 70, 80, 90, 100.
+            <div class="solution-step">
+                <div class="step-row">x̄ = <div class="fraction"><span>60 + 70 + 80 + 90 + 100</span><span class="fdn-dark">5</span></div></div>
+                <div class="step-row">x̄ = <div class="fraction"><span>400</span><span class="fdn-dark">5</span></div></div>
+                <div class="step-row"><b>Mean = 80</b></div>
+            </div>
+        </div>
+
+        <h3>2. Median & Modus</h3>
+        <p><b>Median:</b> Nilai tengah setelah data diurutkan. <b>Modus:</b> Nilai yang paling sering muncul.</p>
+        <div class="example-box">
+            <span class="example-title">Contoh Soal: Median & Modus</span>
+            Data jumlah pensil: 2, 3, 2, 4, 5, 2, 3.
+            <div class="solution-step">
+                <p>1. Modus: Angka <b>2</b> muncul 3 kali (paling sering).</p>
+                <p>2. Median: Urutan = 2, 2, 2, <b>3</b>, 3, 4, 5. Nilai tengah adalah <b>3</b>.</p>
+            </div>
+        </div>
+
+        <h2>D. UKURAN LETAK DATA</h2>
+        <p>Digunakan untuk mengetahui posisi suatu data terhadap kumpulan data lainnya.</p>
+        <ul>
+            <li><b>Kuartil (Q):</b> Membagi data menjadi 4 bagian (Q1, Q2, Q3).</li>
+            <li><b>Desil (D):</b> Membagi data menjadi 10 bagian.</li>
+            <li><b>Persentil (P):</b> Membagi data menjadi 100 bagian.</li>
+            <li><b>Box Plot:</b> Diagram untuk melihat penyebaran data melalui nilai min, Q1, Q2, Q3, dan maks.</li>
+        </ul>
+
+        <h2>E. UKURAN PENYEBARAN DATA</h2>
+        
+        <h3>1. Jangkauan (Range)</h3>
+        <div class="math-display">R = X<sub>maks</sub> - X<sub>min</sub></div>
+
+        <h3>2. Ragam (Varians)</h3>
+        <div class="example-box">
+            <span class="example-title">Contoh Soal: Varians</span>
+            Data: 2, 4, 6 (x̄ = 4).
+            <div class="solution-step">
+                <div class="step-row">S² = <div class="fraction"><span>Σ(x - x̄)²</span><span class="fdn-dark">n</span></div></div>
+                <div class="step-row">S² = <div class="fraction"><span>(2-4)² + (4-4)² + (6-4)²</span><span class="fdn-dark">3</span></div></div>
+                <div class="step-row">S² = <div class="fraction"><span>4 + 0 + 4</span><span class="fdn-dark">3</span></div> = <b>8/3</b></div>
+            </div>
+        </div>
+
+        <h3>3. Simpangan Baku</h3>
+        <div class="math-display">S = √S²</div>
+        <div class="example-box">
+            <span class="example-title">Contoh Soal: Simpangan Baku</span>
+            Dari data varians sebelumnya (S² = 8/3):
+            <div class="solution-step">
+                <div class="step-row">S = <div class="fraction"><span>√8</span><span class="fdn-dark">√3</span></div></div>
+                <div class="step-row"><b>Jadi, Simpangan Baku = √(8/3)</b></div>
+            </div>
+        </div>
+
+        <div class="exercise-section">
+            <h2>SOAL LATIHAN AKHIR</h2>
+            <ol>
+                <li>Nilai ulangan 15 siswa akan disusun dalam tabel distribusi frekuensi. Jelaskan langkah pertama yang harus dilakukan!</li>
+                <li>Jika sebuah kelas berjumlah 50 siswa, dan 20 siswa ikut futsal, hitunglah frekuensi relatifnya!</li>
+                <li>Gambarkan dot plot sederhana untuk data pensil: 2, 3, 2, 4, 5, 2, 3 dan tentukan modusnya!</li>
+                <li>Pada diagram pencar, hubungan apa yang terjadi jika variabel X meningkat diikuti peningkatan variabel Y secara linear?</li>
+                <li>Tentukan <b>Mean</b>, <b>Median</b>, dan <b>Jangkauan</b> dari data: 60, 70, 80, 90, 100!</li>
+            </ol>
+        </div>
     </div>
 
     <footer>
-        <p>2026 Web Matematika - MAN 1 Makassar</p>
-        <p>Kampus Mengajar Berdampak-Jurusan Matematika-Universitas Negeri Makassar</p>
+        <p>2026 Web Matematika Digital - MAN 1 Makassar</p>
+        <p>Dikembangkan oleh Nabila - Program Kampus Mengajar</p>
     </footer>
 
 </body>
