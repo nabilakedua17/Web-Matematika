@@ -3,46 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi Persamaan Kuadrat - Kelas 10</title>
+    <title>Materi Persamaan Kuadrat Profesional - Fase F</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f5f7fa; line-height: 1.6; color: #333; }
-        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
+        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; line-height: 1.7; color: #333; }
+        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 12px; border-radius: 5px; transition: 0.3s; border: 1px solid rgba(255,255,255,0.3); }
         .btn-back:hover { background: rgba(255,255,255,0.2); }
-        .content-container { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
-        h1 { color: #1e3c72; border-bottom: 3px solid #2ecc71; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #2c3e50; margin-top: 30px; border-left: 5px solid #ff8c00; padding-left: 15px; }
-        .info-box { background: #e8f5e9; border-left: 5px solid #2ecc71; padding: 15px; margin: 20px 0; border-radius: 0 10px 10px 0; }
-        footer { text-align: center; padding: 30px; color: #7f8c8d; font-size: 14px; }
-        p { margin-bottom: 15px; }
+        
+        .content-container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1e3c72; border-bottom: 3px solid #e67e22; padding-bottom: 15px; margin-top: 0; text-align: center; font-size: 2.2em; }
+        h2 { color: #ffffff; background: #e67e22; padding: 12px 20px; border-radius: 8px; margin-top: 50px; text-transform: uppercase; letter-spacing: 1px; font-size: 1.4em; }
+        h3 { color: #2c3e50; border-left: 5px solid #e67e22; padding-left: 15px; margin-top: 35px; font-size: 1.25em; }
+
+        /* Penulisan Matematika Profesional */
+        .math-font { font-family: "Times New Roman", Times, serif; font-style: italic; font-size: 1.1em; }
+        .math-bold { font-weight: bold; font-family: "Times New Roman", Times, serif; }
+        
+        .math-display { 
+            background: #2c3e50; 
+            color: #fff; 
+            padding: 30px; 
+            text-align: center; 
+            border-radius: 15px; 
+            margin: 25px 0; 
+            font-family: "Times New Roman", Times, serif; 
+            font-size: 1.8em;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.2);
+            overflow-x: auto;
+        }
+
+        /* Styling Pecahan */
+        .fraction { display: inline-block; vertical-align: middle; margin: 0 0.2em; text-align: center; font-style: normal; font-size: 0.85em; }
+        .fraction > span { display: block; padding: 0.1em; }
+        .fraction span.fdn { border-top: 2px solid white; padding-top: 2px; }
+        .fraction span.fdn-dark { border-top: 2px solid #e67e22; padding-top: 2px; }
+
+        /* Box Contoh Soal */
+        .example-box { background: #ffffff; border: 1px solid #e0e0e0; border-left: 8px solid #e67e22; padding: 30px; margin: 30px 0; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .example-title { color: #e67e22; font-weight: bold; font-size: 1.1em; margin-bottom: 12px; display: block; text-transform: uppercase; }
+        
+        .solution-step { 
+            display: block; 
+            margin-top: 15px; 
+            padding: 20px; 
+            background: #f4fbf7; 
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            font-size: 1.25em;
+            color: #2c3e50;
+            line-height: 2;
+        }
+
+        .step-row { display: flex; align-items: center; justify-content: flex-start; margin-bottom: 8px; flex-wrap: wrap; }
+
+        .guide-box { background: #fdfdfd; padding: 25px; border-radius: 10px; border: 1px solid #e67e22; margin: 25px 0; }
+        .guide-box li { margin-bottom: 12px; }
+
+        .exercise-section { background: #f8f9fa; padding: 35px; border-radius: 15px; margin-top: 50px; border: 1px dashed #bdc3c7; }
+        
+        footer { text-align: center; padding: 40px; color: #95a5a6; font-size: 14px; background: #fff; border-top: 1px solid #eee; margin-top: 50px; }
     </style>
 </head>
 <body>
 
     <div class="navbar">
         <a href="../kelas10.html" class="btn-back">← Kembali</a>
-        <span>Materi Matematika Fase F</span>
+        <span>Media Pembelajaran Digital Matematika - MAN 1 Makassar</span>
     </div>
 
     <div class="content-container">
-        <h1>Matriks</h1>
-        
-        <p>Matriks adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom sehingga membentuk suatu bangun persegi atau persegi panjang.</p>
+        <h1>BAB VI: PERSAMAAN KUADRAT</h1>
 
-        <div class="info-box">
-            <strong>Catatan Penting:</strong> Ordo matriks ditentukan oleh banyaknya baris dikali banyaknya kolom (m x n). Contoh: Matriks 2x3 memiliki 2 baris dan 3 kolom.
+        <p>Persamaan kuadrat adalah suatu persamaan polinomial berorde dua. Bentuk visual dari persamaan ini dalam koordinat Kartesius akan membentuk kurva simetris yang disebut <b>Parabola</b>.</p>
+
+        <h2>A. BENTUK UMUM PERSAMAAN KUADRAT</h2>
+        <div class="math-display">
+            <span class="math-font">ax<sup>2</sup> + bx + c = 0</span>
+        </div>
+        <p>Keterangan variabel dan konstanta:</p>
+        <ul>
+            <li><span class="math-font">x</span> : Variabel (nilai yang ingin diketahui).</li>
+            <li><span class="math-font">a, b</span> : Koefisien bilangan real, dengan syarat <span class="math-font">a &ne; 0</span>.</li>
+            <li><span class="math-font">c</span> : Konstanta atau suku tetap.</li>
+        </ul>
+
+        <h2>B. AKAR-AKAR PERSAMAAN KUADRAT</h2>
+        <p>Akar-akar adalah nilai <span class="math-font">x</span> yang memenuhi persamaan. Terdapat tiga metode utama penyelesaian:</p>
+
+        <h3>1. Metode Pemfaktoran</h3>
+        <div class="example-box">
+            <span class="example-title">Contoh Soal 1:</span>
+            Tentukan akar-akar dari persamaan <span class="math-font">x<sup>2</sup> + 7x + 12 = 0</span>.
+            <div class="solution-step">
+                <div class="step-row">1. Cari dua bilangan <span class="math-font">p</span> dan <span class="math-font">q</span> yang jika dikali = 12 dan dijumlah = 7.</div>
+                <div class="step-row">2. Bilangan tersebut adalah 3 dan 4.</div>
+                <div class="step-row">3. Bentuk faktor: <span class="math-font">(x + 3)(x + 4) = 0</span></div>
+                <div class="step-row">4. Maka: <span class="math-font">x + 3 = 0</span> atau <span class="math-font">x + 4 = 0</span></div>
+                <div class="step-row"><b>Hasil: x<sub>1</sub> = -3 atau x<sub>2</sub> = -4</b></div>
+            </div>
         </div>
 
-        <h2>A. Operasi Matriks</h2>
-        <p>Penjumlahan dan pengurangan matriks hanya dapat dilakukan jika kedua matriks memiliki ordo yang sama. Sedangkan perkalian matriks memerlukan jumlah kolom matriks pertama sama dengan jumlah baris matriks kedua.</p>
+        <h3>2. Rumus Kuadrat (Rumus ABC)</h3>
+        <p>Digunakan jika persamaan sulit difaktorkan secara langsung.</p>
+        <div class="math-display">
+            <span class="math-font">x<sub>1,2</sub> = </span>
+            <div class="fraction">
+                <span><span class="math-font">-b &plusmn; &radic;(b<sup>2</sup> - 4ac)</span></span>
+                <span class="fdn"><span class="math-font">2a</span></span>
+            </div>
+        </div>
 
-        <h2>B. Determinan & Invers</h2>
-        <p>Determinan merupakan nilai yang dapat dihitung dari unsur-unsur suatu matriks persegi. Invers matriks adalah kebalikan dari suatu matriks yang jika dikalikan dengan matriks asalnya akan menghasilkan matriks identitas.</p>
+        <div class="example-box">
+            <span class="example-title">Contoh Soal 2:</span>
+            Selesaikan <span class="math-font">2x<sup>2</sup> + 5x - 3 = 0</span> menggunakan Rumus ABC.
+            <div class="solution-step">
+                <div class="step-row">Diketahui: <span class="math-font">a = 2, b = 5, c = -3</span></div>
+                <div class="step-row">
+                    <span class="math-font">x = </span>
+                    <div class="fraction">
+                        <span>-5 &plusmn; &radic;(5<sup>2</sup> - 4 &middot; 2 &middot; -3)</span>
+                        <span class="fdn-dark">2 &middot; 2</span>
+                    </div>
+                </div>
+                <div class="step-row">
+                    <span class="math-font">x = </span>
+                    <div class="fraction">
+                        <span>-5 &plusmn; &radic;(25 + 24)</span>
+                        <span class="fdn-dark">4</span>
+                    </div>
+                    <span class="math-font"> = </span>
+                    <div class="fraction">
+                        <span>-5 &plusmn; 7</span>
+                        <span class="fdn-dark">4</span>
+                    </div>
+                </div>
+                <div class="step-row"><b>Hasil: x<sub>1</sub> = 0,5 atau x<sub>2</sub> = -3</b></div>
+            </div>
+        </div>
+
+        <h2>C. PERMASALAHAN AKAR-AKAR</h2>
+
+        <h3>1. Diskriminan (D)</h3>
+        <p>Nilai Diskriminan menentukan jenis akar yang dihasilkan:</p>
+        <div class="math-display" style="font-size: 1.5em; background: #f8f9fa; color: #2c3e50; border: 1px solid #ddd;">
+            <span class="math-font">D = b<sup>2</sup> - 4ac</span>
+        </div>
+        <ul>
+            <li><b>D > 0</b> : Memiliki dua akar real yang berbeda.</li>
+            <li><b>D = 0</b> : Memiliki satu akar real (akar kembar).</li>
+            <li><b>D < 0</b> : Tidak memiliki akar real (akar imajiner).</li>
+        </ul>
+
+        <h3>2. Menyusun Persamaan Kuadrat Baru</h3>
+        <p>Jika diketahui akar-akar <span class="math-font">x<sub>1</sub></span> dan <span class="math-font">x<sub>2</sub></span>, maka persamaannya adalah:</p>
+        <div class="math-display">
+            <span class="math-font">x<sup>2</sup> - (x<sub>1</sub> + x<sub>2</sub>)x + (x<sub>1</sub> &middot; x<sub>2</sub>) = 0</span>
+        </div>
+
+        <h2>D. CARA MEMBUAT GRAFIK FUNGSI KUADRAT</h2>
+        <p>Untuk menggambar grafik parabola dari persamaan <span class="math-font">y = ax<sup>2</sup> + bx + c</span>, ikuti langkah-langkah sistematis berikut:</p>
+        
+        <div class="guide-box">
+            <ol>
+                <li><b>Identifikasi Arah Terbuka Kurva:</b>
+                    <ul>
+                        <li>Jika <span class="math-font">a > 0</span>, kurva terbuka ke atas (seperti senyuman).</li>
+                        <li>Jika <span class="math-font">a < 0</span>, kurva terbuka ke bawah.</li>
+                    </ul>
+                </li>
+                <li><b>Tentukan Titik Potong Sumbu X:</b> Cari akar-akar persamaan saat <span class="math-font">y = 0</span>. Titik koordinatnya: <span class="math-font">(x<sub>1</sub>, 0)</span> dan <span class="math-font">(x<sub>2</sub>, 0)</span>.</li>
+                <li><b>Tentukan Titik Potong Sumbu Y:</b> Nilai <span class="math-font">x = 0</span>, maka <span class="math-font">y = c</span>. Titiknya: <span class="math-font">(0, c)</span>.</li>
+                <li><b>Tentukan Sumbu Simetri:</b> Gunakan rumus <span class="math-font">x<sub>p</sub> = -b / 2a</span>.</li>
+                <li><b>Tentukan Titik Puncak (Titik Ekstrem):</b> Masukkan nilai <span class="math-font">x<sub>p</sub></span> ke dalam persamaan awal untuk mendapatkan <span class="math-font">y<sub>p</sub></span>. Koordinat puncak: <span class="math-font">(x<sub>p</sub>, y<sub>p</sub>)</span>.</li>
+                <li><b>Hubungkan Titik:</b> Gambar titik-titik tersebut pada koordinat Kartesius dan hubungkan dengan garis lengkung mulus.</li>
+            </ol>
+        </div>
+
+        <div class="exercise-section">
+            <h3>LATIHAN MANDIRI</h3>
+            <ol>
+                <li>Tentukan nilai Diskriminan dari persamaan <span class="math-font">x<sup>2</sup> - 6x + 9 = 0</span>!</li>
+                <li>Tentukan titik puncak dari fungsi <span class="math-font">f(x) = x<sup>2</sup> - 4x + 3</span>!</li>
+                <li>Susunlah persamaan kuadrat yang akar-akarnya adalah 2 dan 5!</li>
+            </ol>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Web Matematika - MAN 1 Makassar</p>
-        <p>Kampus Mengajar Berdampak Jurusan Matematika</p>
+        <p>Dikembangkan oleh Nabila - Program PPL Universitas Negeri Makassar</p>
     </footer>
 
 </body>

@@ -3,46 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi Barisan dan Deret - Kelas 10</title>
+    <title>Materi SPtLDV Lengkap - MAN 1 Makassar</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f5f7fa; line-height: 1.6; color: #333; }
-        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        /* CSS SESUAI REQUEST: MERAH #e74c3c & BIRU #1e3c72 */
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f0f2f5; line-height: 1.6; color: #333; }
+        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
         .btn-back:hover { background: rgba(255,255,255,0.2); }
-        .content-container { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
-        h1 { color: #1e3c72; border-bottom: 3px solid #2ecc71; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #2c3e50; margin-top: 30px; border-left: 5px solid #ff8c00; padding-left: 15px; }
-        .info-box { background: #e8f5e9; border-left: 5px solid #2ecc71; padding: 15px; margin: 20px 0; border-radius: 0 10px 10px 0; }
-        footer { text-align: center; padding: 30px; color: #7f8c8d; font-size: 14px; }
-        p { margin-bottom: 15px; }
+        
+        .content-container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1e3c72; border-bottom: 3px solid #f1c40f; padding-bottom: 10px; margin-top: 0; text-align: center; }
+        h2 { color: #ffffff; background: #f1c40f; padding: 12px 20px; border-radius: 8px; margin-top: 50px; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { color: #2c3e50; border-left: 5px solid #f1c40f; padding-left: 15px; margin-top: 30px; }
+
+        /* Penulisan Matematika Profesional */
+        .math-font { font-family: "Times New Roman", Times, serif; font-style: italic; font-weight: bold; }
+        
+        .math-display { 
+            background: #2c3e50; 
+            color: #fff; 
+            padding: 25px; 
+            text-align: center; 
+            border-radius: 15px; 
+            margin: 20px 0; 
+            font-family: "Times New Roman", Times, serif; 
+            font-size: 1.6em;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        /* Box Contoh Soal */
+        .example-box { background: #fff; border: 1px solid #f1c40f; border-left: 8px solid #f1c40f; padding: 25px; margin: 30px 0; border-radius: 10px; }
+        .example-title { color: #f1c40f; font-weight: bold; font-size: 1.1em; margin-bottom: 10px; display: block; }
+        
+        .solution-step { 
+            display: block; 
+            margin-top: 15px; 
+            padding: 20px; 
+            background: #f9f9f9; 
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            font-size: 1.2em;
+            color: #333; /* Menggunakan warna gelap agar teks langkah terbaca jelas */
+            line-height: 1.8;
+        }
+
+        .step-highlight { color: #f1c40f; font-weight: bold; display: block; margin-top: 10px; text-decoration: underline; }
+
+        .exercise-section { background: #f8f9fa; padding: 30px; border-radius: 15px; margin-top: 40px; border: 1px dashed #1e3c72; }
+        
+        footer { text-align: center; padding: 40px; color: #7f8c8d; font-size: 14px; background: #fff; border-top: 1px solid #eee; }
+        
+        ul, ol { padding-left: 20px; }
     </style>
 </head>
 <body>
 
     <div class="navbar">
         <a href="../kelas10.html" class="btn-back">← Kembali</a>
-        <span>Materi Matematika Fase F</span>
+        <span>Media Pembelajaran Digital Matematika - MAN 1 Makassar</span>
     </div>
 
     <div class="content-container">
-        <h1>Matriks</h1>
-        
-        <p>Matriks adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom sehingga membentuk suatu bangun persegi atau persegi panjang.</p>
+        <h1>BAB V: SISTEM PERTIDAKSAMAAN LINEAR DUA VARIABEL (SPtLDV)</h1>
 
-        <div class="info-box">
-            <strong>Catatan Penting:</strong> Ordo matriks ditentukan oleh banyaknya baris dikali banyaknya kolom (m x n). Contoh: Matriks 2x3 memiliki 2 baris dan 3 kolom.
+        <h2>A. PENGERTIAN SPtLDV</h2>
+        <p><b>Sistem Pertidaksamaan Linear Dua Variabel (SPtLDV)</b> adalah kumpulan dari dua atau lebih pertidaksamaan linear yang memiliki dua variabel (biasanya <span class="math-font">x</span> dan <span class="math-font">y</span>). Semua pertidaksamaan dalam sistem ini harus dipenuhi secara bersamaan untuk menemukan solusi tunggal berupa daerah grafik.</p>
+
+        <p>Bentuk umum pertidaksamaan dalam sistem ini menggunakan tanda:</p>
+        <div class="math-display">
+            <span class="math-font">ax + by &lt; c</span> | <span class="math-font">ax + by &gt; c</span> | <span class="math-font">ax + by &le; c</span> | <span class="math-font">ax + by &ge; c</span>
         </div>
 
-        <h2>A. Operasi Matriks</h2>
-        <p>Penjumlahan dan pengurangan matriks hanya dapat dilakukan jika kedua matriks memiliki ordo yang sama. Sedangkan perkalian matriks memerlukan jumlah kolom matriks pertama sama dengan jumlah baris matriks kedua.</p>
+        <h2>B. CIRI-CIRI UTAMA</h2>
+        <div class="guide-box">
+            <ul>
+                <li>Terdiri dari dua variabel yang berbeda (misalnya <span class="math-font">x</span> dan <span class="math-font">y</span>).</li>
+                <li>Pangkat tertinggi variabel adalah <b>satu</b>.</li>
+                <li>Himpunan penyelesaiannya berupa <b>Daerah Himpunan Penyelesaian (DHP)</b>.</li>
+            </ul>
+        </div>
 
-        <h2>B. Determinan & Invers</h2>
-        <p>Determinan merupakan nilai yang dapat dihitung dari unsur-unsur suatu matriks persegi. Invers matriks adalah kebalikan dari suatu matriks yang jika dikalikan dengan matriks asalnya akan menghasilkan matriks identitas.</p>
+        <h2>C. LANGKAH MENGGAMBAR GRAFIK SPtLDV</h2>
+        <ol>
+            <li><b>Ubah ke Persamaan:</b> Ganti tanda pertidaksamaan menjadi tanda sama dengan (<span class="math-font">=</span>).</li>
+            <li><b>Cari Titik Potong:</b> 
+                <ul>
+                    <li>Potong sumbu X jika <span class="math-font">y = 0</span>.</li>
+                    <li>Potong sumbu Y jika <span class="math-font">x = 0</span>.</li>
+                </ul>
+            </li>
+            <li><b>Tentukan Jenis Garis:</b>
+                <ul>
+                    <li>Gunakan <b>Garis Penuh</b> jika tanda memiliki sama dengan (<span class="math-font">&le;</span> atau <span class="math-font">&ge;</span>).</li>
+                    <li>Gunakan <b>Garis Putus-putus</b> jika tanda murni (<span class="math-font">&lt;</span> atau <span class="math-font">&gt;</span>).</li>
+                </ul>
+            </li>
+            <li><b>Lakukan Titik Uji (Arsiran):</b> Ambil titik <span class="math-font">(0,0)</span>. Jika hasilnya benar, arsir ke arah (0,0). Jika salah, arsir ke arah sebaliknya.</li>
+        </ol>
+
+        <h2>D. PENYELESAIAN CONTOH KASUS TERPERINCI</h2>
+
+        <div class="example-box">
+            <span class="example-title">Contoh 1: Masalah Toko Roti</span>
+            Roti cokelat (<span class="math-font">x</span>) butuh 3 ons tepung, roti keju (<span class="math-font">y</span>) butuh 2 ons tepung. Tepung tersedia 60 ons.
+            
+            <div class="solution-step">
+                <span class="step-label">1. Identifikasi Variabel & Model:</span>
+                Misal <span class="math-font">x</span> = Roti Cokelat, <span class="math-font">y</span> = Roti Keju.<br>
+                Model: <span class="math-font">3x + 2y &le; 60</span>, dengan syarat <span class="math-font">x &ge; 0, y &ge; 0</span>.
+
+                <span class="step-label">2. Mencari Titik Potong (Garis 3x + 2y = 60):</span>
+                • Jika <span class="math-font">x = 0</span> &rarr; <span class="math-font">2y = 60</span> &rarr; <span class="math-font">y = 30</span>. Titik potong <b>(0, 30)</b>.<br>
+                • Jika <span class="math-font">y = 0</span> &rarr; <span class="math-font">3x = 60</span> &rarr; <span class="math-font">x = 20</span>. Titik potong <b>(20, 0)</b>.
+
+                <span class="step-label">3. Menentukan Arsiran:</span>
+                Uji titik (0,0): <span class="math-font">3(0) + 2(0) &le; 60</span> &rarr; <span class="math-font">0 &le; 60</span> (<b>Benar</b>).<br>
+                Maka, daerah arsiran mengarah ke titik pusat (0,0).
+            </div>
+        </div>
+
+        <div class="example-box">
+            <span class="example-title">Contoh 2: Pembelian Alat Tulis</span>
+            Pensil (<span class="math-font">x</span>) Rp2.000, buku (<span class="math-font">y</span>) Rp5.000. Uang maksimal Rp40.000.
+            
+            <div class="solution-step">
+                <span class="step-label">1. Model Matematika:</span>
+                <span class="math-font">2000x + 5000y &le; 40000</span>. Disederhanakan menjadi <span class="math-font">2x + 5y &le; 40</span>.<br>
+                Syarat: <span class="math-font">x &ge; 0, y &ge; 0</span>.
+
+                <span class="step-label">2. Mencari Titik Potong (Garis 2x + 5y = 40):</span>
+                • Jika <span class="math-font">x = 0</span> &rarr; <span class="math-font">5y = 40</span> &rarr; <span class="math-font">y = 8</span>. Titik potong <b>(0, 8)</b>.<br>
+                • Jika <span class="math-font">y = 0</span> &rarr; <span class="math-font">2x = 40</span> &rarr; <span class="math-font">x = 20</span>. Titik potong <b>(20, 0)</b>.
+
+                <span class="step-label">3. Menentukan Arsiran:</span>
+                Uji titik (0,0): <span class="math-font">2(0) + 5(0) &le; 40</span> &rarr; <span class="math-font">0 &le; 40</span> (<b>Benar</b>).
+            </div>
+        </div>
+
+        <div class="example-box">
+            <span class="example-title">Contoh 3: Lahan Pertanian</span>
+            Lahan 100 m². Cabai (<span class="math-font">x</span>) butuh 2 m² dan Tomat (<span class="math-font">y</span>) butuh 4 m².
+            
+            <div class="solution-step">
+                <span class="step-label">1. Model Matematika:</span>
+                <span class="math-font">2x + 4y &le; 100</span>. Disederhanakan menjadi <span class="math-font">x + 2y &le; 50</span>.<br>
+                Syarat: <span class="math-font">x &ge; 0, y &ge; 0</span>.
+
+                <span class="step-label">2. Mencari Titik Potong (Garis x + 2y = 50):</span>
+                • Jika <span class="math-font">x = 0</span> &rarr; <span class="math-font">2y = 50</span> &rarr; <span class="math-font">y = 25</span>. Titik potong <b>(0, 25)</b>.<br>
+                • Jika <span class="math-font">y = 0</span> &rarr; <span class="math-font">x = 50</span>. Titik potong <b>(50, 0)</b>.
+
+                <span class="step-label">3. Jenis Garis:</span>
+                Karena menggunakan tanda <span class="math-font">&le;</span>, maka grafik digambar dengan <b>Garis Tegas (Penuh)</b>.
+            </div>
+        </div>
+
+        <div class="exercise-section">
+            <h3>LATIHAN MANDIRI</h3>
+            <ol>
+                <li><b>Soal Cerita:</b> Harga nasi kuning Rp8.000 dan es teh Rp3.000. Uang tersedia Rp35.000. Tentukan model matematikanya dan cari titik potong sumbu X dan Y!</li>
+                <li><b>Grafik:</b> Gambarkan daerah penyelesaian dari sistem pertidaksamaan: <span class="math-font">x + y &le; 6, x - y &ge; 2, x &ge; 0, y &ge; 0</span>.</li>
+            </ol>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Web Matematika - MAN 1 Makassar</p>
-        <p>Kampus Mengajar Berdampak Jurusan Matematika</p>
+        <p>Dikembangkan oleh Nabila untuk Program PPL UNM</p>
     </footer>
 
 </body>
