@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Transformasi Fungsi - Kelas 12</title>
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f0f2f5; line-height: 1.6; color: #333; }
+        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
+        .btn-back:hover { background: rgba(255,255,255,0.2); }
+        
+        .content-container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1e3c72; border-bottom: 3px solid #9b59b6; padding-bottom: 10px; margin-top: 0; text-align: center; }
+        h2 { color: #ffffff; background: #9b59b6; padding: 12px 20px; border-radius: 8px; margin-top: 50px; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { color: #1e3c72; border-left: 5px solid #9b59b6; padding-left: 15px; margin-top: 30px; }
+
+        .math-display { 
+            background: #2c3e50; 
+            color: #fff; 
+            padding: 25px; 
+            text-align: center; 
+            border-radius: 15px; 
+            margin: 20px 0; 
+            font-size: 1.3em;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+            overflow-x: auto;
+        }
+
+        .formula-desc {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        .example-box { background: #fff; border: 1px solid #9b59b6; border-left: 8px solid #9b59b6; padding: 25px; margin: 30px 0; border-radius: 10px; }
+        .example-title { color: #9b59b6; font-weight: bold; font-size: 1.1em; margin-bottom: 10px; display: block; }
+        
+        .solution-step { 
+            display: block; 
+            margin-top: 15px; 
+            padding: 15px; 
+            background: #fff9f0; 
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            font-size: 1.1em;
+            color: #9b59b6;
+            border: 1px solid #ffe5bc;
+        }
+
+        .highlight { font-weight: bold; color: #9b59b6; }
+        .exercise-section { background: #fdf7ed; padding: 30px; border-radius: 15px; margin-top: 40px; border: 1px dashed #9b59b6; }
+        
+        footer { text-align: center; padding: 40px; color: #7f8c8d; font-size: 14px; background: #fff; border-top: 1px solid #eee; }
+        
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        table, th, td { border: 1px solid #ddd; }
+        th, td { padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="../kelas12.html" class="btn-back">← Kembali</a>
+        <span>Media Pembelajaran Digital Matematika - MAN 1 Makassar</span>
+    </div>
+
+    <div class="content-container">
+        <h1>BAB 2: TRANSFORMASI FUNGSI</h1>
+        
+        <p>Transformasi fungsi melibatkan pengubahan grafik fungsi dasar melalui operasi aljabar. Memahami transformasi memudahkan kita menggambar grafik kompleks tanpa harus membuat tabel titik satu per satu.</p>
+
+        <!-- SUB BAB A -->
+        <h2>A. Translasi (Pergeseran)</h2>
+        <p>Translasi menggeser setiap titik pada grafik sejauh jarak tertentu ke arah horizontal atau vertikal.</p>
+        <div class="math-display">
+            \[ y = f(x - a) + b \]
+        </div>
+        
+        <div class="formula-desc">
+            <strong>Keterangan Rumus:</strong>
+            <ul>
+                <li><b>\(a\):</b> Pergeseran horizontal. Jika \((x-a)\) geser ke kanan, jika \((x+a)\) geser ke kiri.</li>
+                <li><b>\(b\):</b> Pergeseran vertikal. Jika \(+b\) geser ke atas, jika \(-b\) geser ke bawah.</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal:</span>
+            Tentukan bayangan fungsi \(f(x) = |x|\) jika digeser 4 satuan ke kiri dan 3 satuan ke atas!
+            <div class="solution-step">
+                <b>Penyelesaian:</b><br>
+                Geser kiri 4 satuan: ganti \(x\) dengan \((x + 4)\).<br>
+                Geser atas 3 satuan: tambah konstanta \(+3\).<br>
+                <b>Hasil:</b> <span class="highlight">\( y = |x + 4| + 3 \)</span>
+            </div>
+        </div>
+
+        <!-- SUB BAB B -->
+        <h2>B. Refleksi (Pencerminan)</h2>
+        <p>Refleksi adalah transformasi yang membalik grafik terhadap garis tertentu (sumbu X atau sumbu Y).</p>
+        
+        <table>
+            <tr>
+                <th>Jenis Refleksi</th>
+                <th>Rumus Fungsi</th>
+                <th>Keterangan</th>
+            </tr>
+            <tr>
+                <td>Terhadap Sumbu X</td>
+                <td>\( y = -f(x) \)</td>
+                <td>Grafik terbalik secara vertikal (atas jadi bawah)</td>
+            </tr>
+            <tr>
+                <td>Terhadap Sumbu Y</td>
+                <td>\( y = f(-x) \)</td>
+                <td>Grafik terbalik secara horizontal (kanan jadi kiri)</td>
+            </tr>
+        </table>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal:</span>
+            Jika \( f(x) = e^x \), tentukan persamaan fungsinya setelah dicerminkan terhadap sumbu Y!
+            <div class="solution-step">
+                <b>Penyelesaian:</b><br>
+                Berdasarkan aturan, refleksi terhadap sumbu Y mengubah \(x\) menjadi \(-x\).<br>
+                <b>Hasil:</b> <span class="highlight">\( y = e^{-x} \)</span>
+            </div>
+        </div>
+
+        <!-- SUB BAB C -->
+        <h2>C. Rotasi (Perputaran)</h2>
+        <p>Rotasi pada fungsi biasanya dipelajari pada titik-titik pembentuk kurva terhadap titik pusat \((0,0)\) dengan sudut \(\theta\).</p>
+        <div class="math-display">
+            \[ x' = x\cos\theta - y\sin\theta \]
+            \[ y' = x\sin\theta + y\cos\theta \]
+        </div>
+        <p>Untuk rotasi sejauh \(90^\circ\) berlawanan arah jarum jam: \((x,y) \rightarrow (-y, x)\).</p>
+        <div class="example-box">
+            <span class="example-title">Contoh Soal 3: Rotasi 90 Derajat</span>
+            Garis \( y = 2x + 4 \) diputar sejauh \(90^\circ\) berlawanan arah jarum jam terhadap pusat (0,0). Tentukan bayangannya!
+            <div class="solution-step">
+                <b>Aturan:</b> Rotasi \(90^\circ\) mengubah \((x, y)\) menjadi \((-y, x)\).<br>
+                Artinya: \(x' = -y \rightarrow y = -x'\) dan \(y' = x \rightarrow x = y'\).<br><br>
+                <b>Substitusi ke persamaan awal:</b><br>
+                \( (-x') = 2(y') + 4 \)<br>
+                \( -x = 2y + 4 \)<br>
+                <b>Hasil Akhir:</b> <span class="highlight">\( 2y + x + 4 = 0 \)</span>
+            </div>
+        </div>
+
+        <!-- SUB BAB D -->
+        <h2>D. Dilatasi (Perubahan Ukuran)</h2>
+        <p>Dilatasi mengubah jarak titik-titik grafik terhadap sumbu koordinat dengan faktor skala \(k\).</p>
+        
+        <div class="math-display">
+            \[ y = k \cdot f(x) \quad \text{atau} \quad y = f(k \cdot x) \]
+        </div>
+
+        <div class="formula-desc">
+            <strong>Keterangan:</strong>
+            <ul>
+                <li><b>\(k \cdot f(x)\):</b> Dilatasi Vertikal. Jika \(k > 1\) grafik meregang tegak, jika \(0 < k < 1\) grafik menyusut.</li>
+                <li><b>\(f(k \cdot x)\):</b> Dilatasi Horizontal. Jika \(k > 1\) grafik menyusut mendatar, jika \(0 < k < 1\) grafik meregang mendatar.</li>
+            </ul>
+        </div>
+        <div class="example-box">
+            <span class="example-title">Contoh Soal 4: Dilatasi Vertikal</span>
+            Tentukan bayangan fungsi \(f(x) = x^2 - 4\) jika didilatasi vertikal dengan faktor skala 2!
+            <div class="solution-step">
+                <b>Aturan:</b> Dilatasi vertikal menggunakan rumus \( y = k \cdot f(x) \).<br>
+                <b>Penyelesaian:</b><br>
+                \( y = 2 \cdot (x^2 - 4) \)<br>
+                <b>Hasil Akhir:</b> <span class="highlight">\( y = 2x^2 - 8 \)</span>
+            </div>
+        </div>
+
+        <!-- SUB BAB E -->
+        <h2>E. Komposisi Transformasi Fungsi</h2>
+        <p>Komposisi terjadi ketika sebuah fungsi dikenai lebih dari satu transformasi secara berurutan. Urutan transformasi sangat mempengaruhi hasil akhir.</p>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal Komposisi:</span>
+            Fungsi \( f(x) = x^2 \) direfleksikan terhadap sumbu X, lalu digeser 5 satuan ke bawah. Tentukan bayangannya!
+            <div class="solution-step">
+                <b>Langkah 1 (Refleksi Sumbu X):</b> \( y_1 = -f(x) = -x^2 \).<br>
+                <b>Langkah 2 (Translasi bawah 5):</b> \( y_2 = y_1 - 5 = -x^2 - 5 \).<br>
+                <b>Hasil:</b> <span class="highlight">\( y = -x^2 - 5 \)</span>
+            </div>
+        </div>
+
+        <!-- LATIHAN AKHIR -->
+        <div class="exercise-section">
+            <h2>UJI PEMAHAMAN</h2>
+            <p>Kerjakan soal berikut untuk melatih kemampuanmu:</p>
+            <ol>
+                <li>Gambarkan bayangan \( f(x) = x^3 \) jika ditranslasikan oleh \( \begin{pmatrix} 2 \\ -1 \end{pmatrix} \)!</li>
+                <li>Tentukan persamaan bayangan \( f(x) = 2x + 3 \) setelah direfleksikan terhadap sumbu X!</li>
+                <li>Fungsi \( f(x) = \sin(x) \) diluaskan secara vertikal dengan faktor skala 2. Tentukan persamaannya!</li>
+                <li>Garis \( y = x - 5 \) diputar \( 90^\circ \) terhadap pusat \((0,0)\). Apa persamaannya?</li>
+                <li>Fungsi \( f(x) = \sqrt{x} \) digeser ke kanan 2 satuan, kemudian direfleksikan terhadap sumbu Y. Tentukan hasil akhirnya!</li>
+            </ol>
+        </div>
+    </div>
+
+    <footer>
+        <p>2026 Web Matematika Digital - MAN 1 Makassar</p>
+        <p>Dikembangkan oleh Nabila - Program Kampus Mengajar</p>
+    </footer>
+
+</body>
+</html>
