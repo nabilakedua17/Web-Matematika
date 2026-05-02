@@ -3,36 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi Perbandingan Trigonometri - Kelas 10</title>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Materi Trigonometri - Kelas 10</title>
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']]
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Desain Konsisten */
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f0f2f5; line-height: 1.6; color: #333; }
+        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
+        .btn-back:hover { background: rgba(255,255,255,0.2); }
+        
+        .content-container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1e3c72; border-bottom: 3px solid #9b59b6; padding-bottom: 10px; margin-top: 0; text-align: center; }
+        h2 { color: #ffffff; background: #9b59b6; padding: 12px 20px; border-radius: 8px; margin-top: 50px; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { color: #2c3e50; border-left: 5px solid #9b59b6; padding-left: 15px; margin-top: 30px; }
+
+        .math-display { 
+            background: #2c3e50; 
+            color: #fff; 
+            padding: 25px; 
+            text-align: center; 
+            border-radius: 15px; 
+            margin: 20px 0; 
+            font-size: 1.3em;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+            overflow-x: auto;
+        }
+
+        .example-box { background: #fff; border: 1px solid #9b59b6; border-left: 8px solid #9b59b6; padding: 25px; margin: 30px 0; border-radius: 10px; }
+        .example-title { color: #9b59b6; font-weight: bold; font-size: 1.1em; margin-bottom: 10px; display: block; }
+        
+        .solution-step { 
+            display: block; 
+            margin-top: 15px; 
+            padding: 15px; 
+            background: #fff9f0; 
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            font-size: 1.1em;
+            color: #9b59b6;
+            border: 1px solid #ffe5bc;
+        }
+
+        .highlight { font-weight: bold; color: #9b59b6; }
+        .exercise-section { background: #fdf7ed; padding: 30px; border-radius: 15px; margin-top: 40px; border: 1px dashed #9b59b6; }
+        
+        footer { text-align: center; padding: 40px; color: #7f8c8d; font-size: 14px; background: #fff; border-top: 1px solid #eee; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background: #1e3c72; color: white; }
+    </style>
 </head>
 <body>
 
     <div class="navbar">
         <a href="../kelas10.html" class="btn-back">← Kembali</a>
-        <span>Materi Matematika Fase F</span>
+        <span>Media Pembelajaran Digital Matematika - MAN 1 Makassar</span>
     </div>
 
     <div class="content-container">
-        <h1>Matriks</h1>
+        <h1>BAB 3: PERBANDINGAN TRIGONOMETRI</h1>
         
-        <p>Matriks adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom sehingga membentuk suatu bangun persegi atau persegi panjang.</p>
+        <p>Trigonometri mempelajari hubungan antara sisi dan sudut pada segitiga. Konsep ini sangat penting dalam navigasi, astronomi, dan teknik sipil.</p>
 
-        <div class="info-box">
-            <strong>Catatan Penting:</strong> Ordo matriks ditentukan oleh banyaknya baris dikali banyaknya kolom (m x n). Contoh: Matriks 2x3 memiliki 2 baris dan 3 kolom.
+        <!-- SUB BAB A -->
+        <h2>A. Perbandingan Trigonometri pada Segitiga Siku-Siku</h2>
+        <p>Pada segitiga siku-siku, perbandingan sisi-sisinya didefinisikan berdasarkan letak sudut terhadap sisi depan, samping, dan miring (hipotenusa).</p>
+        
+        <div class="math-display">
+            \[ \sin \theta = \frac{de}{mi}, \quad \cos \theta = \frac{sa}{mi}, \quad \tan \theta = \frac{de}{sa} \]
         </div>
 
-        <h2>A. Operasi Matriks</h2>
-        <p>Penjumlahan dan pengurangan matriks hanya dapat dilakukan jika kedua matriks memiliki ordo yang sama. Sedangkan perkalian matriks memerlukan jumlah kolom matriks pertama sama dengan jumlah baris matriks kedua.</p>
+        <div class="example-box">
+            <span class="example-title">Contoh Soal:</span>
+            Diketahui segitiga siku-siku dengan sisi depan 3 cm dan sisi samping 4 cm. Tentukan nilai \(\sin \theta\)!
+            <div class="solution-step">
+                <b>Langkah 1:</b> Cari sisi miring menggunakan Pythagoras.<br>
+                \( mi = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5 \)<br><br>
+                <b>Langkah 2:</b> Masukkan ke rumus sin.<br>
+                \( \sin \theta = \frac{depan}{miring} = \mathbf{\frac{3}{5}} \)
+            </div>
+        </div>
 
-        <h2>B. Determinan & Invers</h2>
-        <p>Determinan merupakan nilai yang dapat dihitung dari unsur-unsur suatu matriks persegi. Invers matriks adalah kebalikan dari suatu matriks yang jika dikalikan dengan matriks asalnya akan menghasilkan matriks identitas.</p>
+        <!-- SUB BAB B -->
+        <h2>B. Perbandingan Trigonometri di Berbagai Kuadran</h2>
+        <p>Nilai perbandingan trigonometri bergantung pada letak sudut di sistem koordinat Kartesius yang terbagi menjadi 4 kuadran:</p>
+        
+        <table>
+            <tr>
+                <th>Kuadran</th>
+                <th>Rentang Sudut</th>
+                <th>Nilai Positif (+)</th>
+            </tr>
+            <tr>
+                <td>I</td>
+                <td>\(0^\circ < \alpha < 90^\circ\)</td>
+                <td>Semua (Sin, Cos, Tan)</td>
+            </tr>
+            <tr>
+                <td>II</td>
+                <td>\(90^\circ < \alpha < 180^\circ\)</td>
+                <td>Sinus (dan Cosecan)</td>
+            </tr>
+            <tr>
+                <td>III</td>
+                <td>\(180^\circ < \alpha < 270^\circ\)</td>
+                <td>Tangen (dan Cotangen)</td>
+            </tr>
+            <tr>
+                <td>IV</td>
+                <td>\(270^\circ < \alpha < 360^\circ\)</td>
+                <td>Cosinus (dan Secan)</td>
+            </tr>
+        </table>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal:</span>
+            Tentukan tanda (positif/negatif) untuk nilai \(\cos 120^\circ\)!
+            <div class="solution-step">
+                <b>Analisis:</b> Sudut \(120^\circ\) berada di antara \(90^\circ\) dan \(180^\circ\), yang berarti berada di <b>Kuadran II</b>.<br>
+                Di Kuadran II, hanya Sinus yang positif, maka nilai <span class="highlight">\(\cos 120^\circ\) bernilai Negatif (-)</span>.
+            </div>
+        </div>
+
+        <!-- SUB BAB C -->
+        <h2>C. Perbandingan Trigonometri pada Sudut Berelasi</h2>
+        <p>Sudut berelasi digunakan untuk mengubah sudut di kuadran II, III, dan IV menjadi sudut di kuadran I.</p>
+        
+        <div class="math-display">
+            \[ 
+            \begin{aligned}
+            \text{Kuadran II: } & \sin(180^\circ - \alpha) = \sin \alpha \\
+            \text{Kuadran III: } & \tan(180^\circ + \alpha) = \tan \alpha \\
+            \text{Kuadran IV: } & \cos(360^\circ - \alpha) = \cos \alpha
+            \end{aligned}
+            \]
+        </div>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal:</span>
+            Hitunglah nilai dari \(\sin 150^\circ\)!
+            <div class="solution-step">
+                <b>Penyelesaian:</b><br>
+                Sudut \(150^\circ\) ada di Kuadran II.<br>
+                \( \sin 150^\circ = \sin(180^\circ - 30^\circ) \)<br>
+                \( \sin 150^\circ = \sin 30^\circ \)<br>
+                <b>Hasil:</b> <span class="highlight">\( \frac{1}{2} \)</span>
+            </div>
+        </div>
+
+        <!-- LATIHAN AKHIR -->
+        <div class="exercise-section">
+            <h2>LATIHAN SOAL MANDIRI</h2>
+            <ol>
+                <li>Jika \(\cos A = \frac{12}{13}\) (A sudut lancip), tentukan nilai \(\tan A\)!</li>
+                <li>Di kuadran manakah letak sudut \(\beta\) jika \(\sin \beta < 0\) dan \(\cos \beta > 0\)?</li>
+                <li>Tentukan nilai dari \(\cos 210^\circ\)!</li>
+                <li>Hitunglah nilai dari \(\tan 315^\circ\)!</li>
+                <li>Sebuah tangga sepanjang 10 meter disandarkan pada tembok dengan sudut \(60^\circ\) terhadap lantai. Tentukan tinggi tembok yang dicapai tangga!</li>
+            </ol>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Web Matematika - MAN 1 Makassar</p>
-        <p>Kampus Mengajar Berdampak Jurusan Matematika</p>
+        <p>2026 Web Matematika Digital - MAN 1 Makassar</p>
+        <p>Dikembangkan oleh Nabila - Program Kampus Mengajar</p>
     </footer>
 
 </body>

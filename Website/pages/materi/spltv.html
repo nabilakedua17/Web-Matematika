@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi Barisan dan Deret - Kelas 10</title>
+    <title>Materi SPLTV - Kelas 10/11</title>
     <script>
 window.MathJax = {
   tex: {
@@ -14,44 +14,162 @@ window.MathJax = {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f5f7fa; line-height: 1.6; color: #333; }
-        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        /* Desain Konsisten dengan Navigasi Sebelumnya */
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f0f2f5; line-height: 1.6; color: #333; }
+        .navbar { background: #1e3c72; padding: 15px 20px; color: white; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .btn-back { color: white; text-decoration: none; font-weight: bold; margin-right: 20px; padding: 5px 10px; border-radius: 5px; transition: 0.3s; }
         .btn-back:hover { background: rgba(255,255,255,0.2); }
-        .content-container { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
-        h1 { color: #1e3c72; border-bottom: 3px solid #2ecc71; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #2c3e50; margin-top: 30px; border-left: 5px solid #ff8c00; padding-left: 15px; }
-        .info-box { background: #e8f5e9; border-left: 5px solid #2ecc71; padding: 15px; margin: 20px 0; border-radius: 0 10px 10px 0; }
-        footer { text-align: center; padding: 30px; color: #7f8c8d; font-size: 14px; }
-        p { margin-bottom: 15px; }
+        
+        .content-container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1e3c72; border-bottom: 3px solid #1abc9c; padding-bottom: 10px; margin-top: 0; text-align: center; }
+        h2 { color: #ffffff; background: #1abc9c; padding: 12px 20px; border-radius: 8px; margin-top: 50px; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { color: #2c3e50; border-left: 5px solid #1abc9c; padding-left: 15px; margin-top: 30px; }
+
+        /* Penulisan Matematika */
+        .math-display { 
+            background: #2c3e50; 
+            color: #fff; 
+            padding: 25px; 
+            text-align: center; 
+            border-radius: 15px; 
+            margin: 20px 0; 
+            font-size: 1.4em;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        /* Box Contoh Soal */
+        .example-box { background: #fff; border: 1px solid #1abc9c; border-left: 8px solid #1abc9c; padding: 25px; margin: 30px 0; border-radius: 10px; }
+        .example-title { color: #1abc9c; font-weight: bold; font-size: 1.1em; margin-bottom: 10px; display: block; }
+        
+        .solution-step { 
+            display: block; 
+            margin-top: 15px; 
+            padding: 15px; 
+            background: #fffaf5; 
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            font-size: 1.1em;
+            color: #1abc9c;
+            border: 1px solid #ffeada;
+        }
+
+        .highlight { font-weight: bold; color: #1abc9c; }
+
+        .exercise-section { background: #fdfaf7; padding: 30px; border-radius: 15px; margin-top: 40px; border: 1px dashed #1abc9c; }
+        
+        footer { text-align: center; padding: 40px; color: #7f8c8d; font-size: 14px; background: #fff; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
 
     <div class="navbar">
         <a href="../kelas10.html" class="btn-back">← Kembali</a>
-        <span>Materi Matematika Fase F</span>
+        <span>Media Pembelajaran Digital Matematika - MAN 1 Makassar</span>
     </div>
 
     <div class="content-container">
-        <h1>Matriks</h1>
-        
-        <p>Matriks adalah susunan bilangan, simbol, atau ekspresi yang disusun dalam baris dan kolom sehingga membentuk suatu bangun persegi atau persegi panjang.</p>
+        <h1>BAB 4: SISTEM PERSAMAAN LINEAR TIGA VARIABEL (SPLTV)</h1>
 
-        <div class="info-box">
-            <strong>Catatan Penting:</strong> Ordo matriks ditentukan oleh banyaknya baris dikali banyaknya kolom (m x n). Contoh: Matriks 2x3 memiliki 2 baris dan 3 kolom.
+        <p>Setelah mempelajari persamaan linear satu dan dua variabel, kini kita akan mempelajari <b>Sistem Persamaan Linear Tiga Variabel (SPLTV)</b>. Materi ini sangat penting karena banyak permasalahan nyata yang melibatkan lebih dari dua variabel, misalnya dalam menentukan harga satuan barang saat membeli paket alat tulis yang berbeda.</p>
+
+        <h2>A. MENGIDENTIFIKASI SPLTV</h2>
+        
+        <h3>1. Definisi</h3>
+        <p>SPLTV adalah sistem persamaan yang terdiri atas tiga persamaan linear, di mana masing-masing persamaan memiliki tiga variabel berpangkat satu.</p>
+        
+        <h3>2. Bentuk Umum</h3>
+        <div class="math-display">
+            \[
+            \begin{cases} 
+            a_1x + b_1y + c_1z = d_1 \\
+            a_2x + b_2y + c_2z = d_2 \\
+            a_3x + b_3y + c_3z = d_3 
+            \end{cases}
+            \]
+        </div>
+        <p>Dimana \(x, y, z\) adalah <b>variabel</b>; \(a, b, c\) adalah <b>koefisien</b>; dan \(d\) adalah <b>konstanta</b>.</p>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Identifikasi</span>
+            Manakah di antara persamaan berikut yang merupakan bagian dari SPLTV?
+            <ul>
+                <li>\(3x + 2y - z = 10\) <span class="highlight">(IYA)</span></li>
+                <li>\(x^2 + y + z = 5\) <span class="highlight">(BUKAN - karena ada pangkat 2)</span></li>
+                <li>\(xy + z = 4\) <span class="highlight">(BUKAN - karena variabel saling dikalikan)</span></li>
+            </ul>
         </div>
 
-        <h2>A. Operasi Matriks</h2>
-        <p>Penjumlahan dan pengurangan matriks hanya dapat dilakukan jika kedua matriks memiliki ordo yang sama. Sedangkan perkalian matriks memerlukan jumlah kolom matriks pertama sama dengan jumlah baris matriks kedua.</p>
+        <h2>B. MENYELESAIKAN SPLTV</h2>
+        <p>Ada beberapa metode untuk mencari solusi SPLTV, namun metode yang paling efektif adalah <b>Metode Campuran</b> (Eliminasi dan Substitusi).</p>
 
-        <h2>B. Determinan & Invers</h2>
-        <p>Determinan merupakan nilai yang dapat dihitung dari unsur-unsur suatu matriks persegi. Invers matriks adalah kebalikan dari suatu matriks yang jika dikalikan dengan matriks asalnya akan menghasilkan matriks identitas.</p>
+        <h3>Langkah Penyelesaian:</h3>
+        <ol>
+            <li>Eliminasi salah satu variabel dari dua pasang persamaan (misal pers. 1 & 2, lalu pers. 2 & 3) hingga didapat SPL dua variabel.</li>
+            <li>Selesaikan SPL dua variabel tersebut menggunakan eliminasi atau substitusi.</li>
+            <li>Substitusikan nilai variabel yang sudah didapat ke salah satu persamaan awal.</li>
+        </ol>
+
+        <div class="example-box">
+            <span class="example-title">Contoh Soal Penyelesaian</span>
+            Tentukan nilai \(x, y, z\) dari sistem berikut:
+            <div class="solution-step">
+                (1) \(x + y + z = 6\) <br>
+                (2) \(x - y + z = 2\) <br>
+                (3) \(2x + y - z = 1\)
+            </div>
+
+            <p><b>Penyelesaian:</b></p>
+            <div class="solution-step">
+                <b>Tahap 1: Eliminasi \(y\) dari (1) dan (2)</b><br>
+                \((x + y + z = 6)\)<br>
+                \((x - y + z = 2)\)<br>
+                ----------------- (+)<br>
+                \(2x + 2z = 8\) &rarr; \(x + z = 4\) <b>(Persamaan Baru 4)</b>
+            </div>
+
+            <div class="solution-step">
+                <b>Tahap 2: Eliminasi \(y\) dari (2) dan (3)</b><br>
+                \((x - y + z = 2)\)<br>
+                \((2x + y - z = 1)\)<br>
+                ----------------- (+)<br>
+                \(3x = 3\) &rarr; <span class="highlight">x = 1</span>
+            </div>
+
+            <div class="solution-step">
+                <b>Tahap 3: Substitusi \(x = 1\) ke Persamaan 4</b><br>
+                \(1 + z = 4\) &rarr; <span class="highlight">z = 3</span>
+            </div>
+
+            <div class="solution-step">
+                <b>Tahap 4: Substitusi \(x=1, z=3\) ke Persamaan 1</b><br>
+                \(1 + y + 3 = 6\) &rarr; \(y + 4 = 6\) &rarr; <span class="highlight">y = 2</span>
+            </div>
+            
+            <p><b>Jadi, Himpunan Penyelesaiannya adalah {(1, 2, 3)}</b></p>
+        </div>
+
+        <div class="exercise-section">
+            <h2>SOAL LATIHAN</h2>
+            <ol>
+                <li>Apa perbedaan mendasar antara SPLDV dan SPLTV?</li>
+                <li>Ubah narasi berikut menjadi model matematika: "Budi membeli 2 buku, 1 pensil, dan 3 penggaris seharga Rp15.000."</li>
+                <li>Tentukan himpunan penyelesaian dari:
+                    \[
+                    \begin{cases} 
+                    x + y - z = -3 \\
+                    x + 2y + z = 7 \\
+                    2x + y + z = 4 
+                    \end{cases}
+                    \]
+                </li>
+            </ol>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Web Matematika - MAN 1 Makassar</p>
-        <p>Kampus Mengajar Berdampak Jurusan Matematika</p>
+        <p>2026 Web Matematika Digital - MAN 1 Makassar</p>
+        <p>Dikembangkan oleh Nabila - Program Kampus Mengajar</p>
     </footer>
 
 </body>
