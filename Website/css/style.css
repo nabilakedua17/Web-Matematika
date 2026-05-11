@@ -5,11 +5,11 @@ body {
     background-color: #f8fbff;
     color: #333;
     overflow-x: hidden;
-    
-    /* TAMBAHKAN KODE DI BAWAH INI */
+
+    /* UPDATE INI: Agar body menjadi kontainer flex */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Memaksa body minimal setinggi layar */
+    min-height: 100vh; /* Memaksa tinggi body minimal seukuran layar HP */
 }
 /* Elemen ini harus membungkus Hero dan Kelas-Container di HTML-mu */
 .main-content {
