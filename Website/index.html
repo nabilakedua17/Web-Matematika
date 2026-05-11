@@ -10,23 +10,35 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    
+    <input type="checkbox" id="check"> <input type="checkbox" id="check-calc"> <div class="header-controls">
+        <label for="check-calc" class="calc-toggle">
+            <span>🖩</span> Kalkulator
+        </label>
 
-    <input type="checkbox" id="check">
+        <label for="check" class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </label>
+    </div>
 
-<label for="check" class="menu-toggle">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-</label>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="pages/kelas10.html">Kelas 10</a></li>
+            <li><a href="pages/kelas11.html">Kelas 11</a></li>
+            <li><a href="pages/kelas12.html">Kelas 12</a></li>
+        </ul>
+    </nav>
 
-<nav class="nav-menu">
-    <ul>
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="pages/kelas10.html">Kelas 10</a></li>
-        <li><a href="pages/kelas11.html">Kelas 11</a></li>
-        <li><a href="pages/kelas12.html">Kelas 12</a></li>
-    </ul>
-</nav>
+    <div class="calc-modal">
+        <div class="calc-box">
+            <label for="check-calc" class="close-calc">&times;</label>
+            <h3>Kalkulator Ilmiah</h3>
+            <iframe src="https://www.desmos.com/scientific?embed" width="100%" height="400" style="border:none; border-radius: 8px;"></iframe>
+        </div>
+    </div>
 
     <div class="logo-container">
         <span></span> 
