@@ -1,11 +1,6 @@
 /* --- GLOBAL & BODY --- */
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8fbff;
-    color: #333;
-    overflow-x: hidden;
-}
+body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f5f7fa; color: #333; position: relative; overflow-x: hidden; 
+    width: 100%; }
         /* --- LOGO / NAVBAR (KIRI ATAS) --- */
         .logo-container {
             position: absolute;
