@@ -232,12 +232,14 @@ footer {
     position: fixed;
     top: 0;
     right: -100%; /* Sembunyi di kanan luar layar */
-    width: 250px;
+    width: 80%;
+    max-width: 300px;
     height: 100vh;
     background-color: #0d2556;
     padding-top: 80px;
-    transition: all 0.5s;
+    transition: all 0.4s;
     z-index: 999;
+    box-shadow: -10px 0 20px rgba(0,0,0,0.3); /* Bayangan agar terlihat depth-nya */
 }
 
 /* LOGIKANYA DI SINI: */
