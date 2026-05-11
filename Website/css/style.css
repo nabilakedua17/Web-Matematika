@@ -1,12 +1,20 @@
 /* --- GLOBAL & BODY --- */
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif; /* Font baru yang lebih bersih */
-            background-color: #f8fbff; /* Background yang sedikit lebih cerah/biru sangat muda */
-            color: #333;
-            overflow-x: hidden;
-        }
-
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8fbff;
+    color: #333;
+    overflow-x: hidden;
+    
+    /* TAMBAHKAN KODE DI BAWAH INI */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Memaksa body minimal setinggi layar */
+}
+/* Elemen ini harus membungkus Hero dan Kelas-Container di HTML-mu */
+.main-content {
+    flex: 1 0 auto; /* Ini yang mendorong footer ke bawah */
+}
         /* --- LOGO / NAVBAR (KIRI ATAS) --- */
         .logo-container {
             position: absolute;
@@ -167,15 +175,16 @@
         .card:nth-child(3) a:hover { box-shadow: 0 10px 25px rgba(46, 204, 113, 0.5); }
 
         /* --- FOOTER MODEREN --- */
-        footer {
-            background-color: #121921;
-            color: rgba(255,255,255,0.6);
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 100px;
-            font-size: 14px;
-        }
-
+footer {
+    flex-shrink: 0; /* Mencegah footer menciut */
+    background-color: #121921;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 100px; /* Jarak minimal dari konten atas */
+    font-size: 14px;
+    width: 100%;
+}
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 900px) {
             .hero h1 { font-size: 40px; }
