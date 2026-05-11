@@ -41,3 +41,83 @@ body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #f5f7fa; colo
         .card a:hover { opacity: 0.9; transform: scale(1.05); }
 
         footer { background: #0f2027; color: white; text-align: center; padding: 30px; margin-top: 50px; }
+
+        /* --- 1. Sembunyikan Checkbox Aslinya --- */
+#check {
+    display: none;
+}
+
+/* --- 2. Styling Tombol Garis Tiga (Label) --- */
+.menu-toggle {
+    position: fixed; /* Supaya tetap ada saat di-scroll */
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 1001; /* Harus lebih tinggi dari menu overlay */
+    background: rgba(0, 0, 0, 0.2); /* Background tipis agar terlihat di background terang */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white; /* Ganti hitam jika background webmu putih */
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- 3. Styling Menu Navigasi (Slide-in) --- */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Posisi awal tersembunyi di kanan luar layar */
+    width: 300px;
+    height: 100%;
+    background: #0d2556; /* Warna biru senada dengan tema gambarmu */
+    z-index: 1000;
+    transition: all 0.5s ease;
+    padding-top: 80px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu ul li {
+    padding: 15px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    transition: 0.3s;
+}
+
+.nav-menu ul li a:hover {
+    color: #ff9800; /* Warna orange saat disorot */
+    padding-left: 10px;
+}
+
+/* --- 4. LOGIKA MAGIC (Tanpa JS) --- */
+/* Ketika checkbox di-klik/dicentang, geser menu ke posisi right: 0 */
+#check:checked ~ .nav-menu {
+    right: 0;
+}
+
+/* Bonus: Animasi Garis 3 jadi tanda Silang (X) saat menu buka */
+#check:checked ~ .menu-toggle .bar:nth-child(2) {
+    opacity: 0;
+}
+#check:checked ~ .menu-toggle .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+#check:checked ~ .menu-toggle .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}

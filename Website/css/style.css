@@ -183,3 +183,81 @@
             .card { width: 100%; max-width: 320px; }
             .kelas-container { margin: -30px auto 50px auto; }
         }
+
+        /* Styling Tombol Garis 3 */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 4px 0;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* Sembunyikan checkbox aslinya */
+#check {
+    display: none;
+}
+
+/* Styling Tombol (Label) */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.bar {
+    display: block;
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Styling Menu */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Sembunyi di kanan luar layar */
+    width: 250px;
+    height: 100vh;
+    background-color: #0d2556;
+    padding-top: 80px;
+    transition: all 0.5s;
+    z-index: 999;
+}
+
+/* LOGIKANYA DI SINI: */
+/* Jika checkbox #check dicentang, cari elemen .nav-menu yang ada setelahnya */
+#check:checked ~ .nav-menu {
+    right: 0;
+}
+
+/* Opsional: Animasi tombol garis 3 jadi X saat diklik */
+#check:checked ~ .menu-toggle .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+#check:checked ~ .menu-toggle .bar:nth-child(2) {
+    opacity: 0;
+}
+#check:checked ~ .menu-toggle .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Styling link menu agar rapi */
+.nav-menu ul { list-style: none; }
+.nav-menu ul li { padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.nav-menu ul li a { color: white; text-decoration: none; font-weight: bold; }
