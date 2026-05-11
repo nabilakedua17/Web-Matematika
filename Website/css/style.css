@@ -273,6 +273,7 @@ footer {
     align-items: center;
     gap: 15px; /* Jarak antara kalkulator dan garis tiga */
     z-index: 1001;
+    pointer-events: auto;
 }
 
 /* Styling Tombol Kalkulator */
@@ -344,6 +345,8 @@ footer {
     background: rgba(255,255,255,0.1);
     padding: 5px;
     border-radius: 5px;
+    touch-action: manipulation; 
+    user-select: none;
 }
 
 /* --- PENGATURAN KHUSUS HP (MOBILE) --- */
